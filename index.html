@@ -1,0 +1,41 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<head>
+<title>wikiradio</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="wikiradio.css" media="screen" />
+</head>
+
+<body>
+
+<h1>wikiradio</h1>
+
+<p id="audioDescription"><a href="https://commons.wikimedia.org/wiki/File:Claude_Debussy_-_La_fille_aux_cleveux_de_lin_-_David_Hernando_Vitores_-_Kayoko_Morimoto_%28Wasei_Duo%29.ogg">La fille aux cleveux de lin</a></p>
+
+<audio id="audioPlayer" src="https://upload.wikimedia.org/wikipedia/commons/4/47/Claude_Debussy_-_La_fille_aux_cleveux_de_lin_-_David_Hernando_Vitores_-_Kayoko_Morimoto_%28Wasei_Duo%29.ogg" autoplay autobuffer controls />
+
+
+<script type="text/javascript">
+var ArraySongs = [
+["La fille aux cleveux de lin", "https://commons.wikimedia.org/wiki/File:Claude_Debussy_-_La_fille_aux_cleveux_de_lin_-_David_Hernando_Vitores_-_Kayoko_Morimoto_%28Wasei_Duo%29.ogg",  "https://upload.wikimedia.org/wikipedia/commons/4/47/Claude_Debussy_-_La_fille_aux_cleveux_de_lin_-_David_Hernando_Vitores_-_Kayoko_Morimoto_%28Wasei_Duo%29.ogg"], 
+["Menuet Nº3 de la petite Suite",
+"https://commons.wikimedia.org/wiki/File:Claude_Debussy_-_Menuet_N%C2%BA3_de_la_petite_Suite_-_David_Hernando_Vitores_-_Kayoko_Morimoto_%28Wasei_Duo%29.ogg",  "https://upload.wikimedia.org/wikipedia/commons/7/7a/Claude_Debussy_-_Menuet_N%C2%BA3_de_la_petite_Suite_-_David_Hernando_Vitores_-_Kayoko_Morimoto_%28Wasei_Duo%29.ogg"], 
+["Rêverie - Arr for Soprano saxophone and piano", "https://commons.wikimedia.org/wiki/File:Claude_Debussy_-_R%C3%AAverie_-_Arr_for_Soprano_saxophone_and_piano_-_David_Hernando_Vitores.ogg", "https://upload.wikimedia.org/wikipedia/commons/c/c0/Claude_Debussy_-_R%C3%AAverie_-_Arr_for_Soprano_saxophone_and_piano_-_David_Hernando_Vitores.ogg"], 
+]
+var i = 1;
+var audioPlayer = document.getElementById('audioPlayer');
+var audioDescription = document.getElementById('audioDescription');
+
+audioPlayer.onended = function(){
+    audioDescription.innerHTML = '<a href="' + ArraySongs[i][1] + '">' + ArraySongs[i][0] + '</a>';
+    audioPlayer.src = ArraySongs[i][2];
+    if (i < ArraySongs.length - 1) {
+        i++;
+    } else {
+        i = 0;
+    }
+}
+</script>
+
+</body>
+
+</html>
