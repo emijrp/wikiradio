@@ -39,20 +39,21 @@ for (var i=0;i<ArraySongs.length;i++) {
     songID = i;
     if (diffsec <= ArraySongs[i][3]) {
         playthisfrom(songID, diffsec);
+        break;
     }else{
         diffsec -= ArraySongs[i][3];
     }
 }
 
 var audioPlayer = document.getElementById('audioPlayer');
-/*audioPlayer.onended = function(){
+audioPlayer.onended = function(){
     if (songID < ArraySongs.length - 1) {
         songID++;
     } else {
         songID = 0;
     }
     playthis(songID);
-}*/
+}
 
 function playthis(songID){
     document.write('Playing ' + ArraySongs[songID][0] + ' from ' + diffsec);
@@ -67,7 +68,11 @@ function playthis(songID){
 function playthisfrom(songID, diffsec){
     playthis(songID);
     var audioPlayer = document.getElementById('audioPlayer');
-    audioPlayer.currentTime = diffsec;
+    audioPlayer.ondurationchange = function() {
+        audioPlayer.pause();
+        audioPlayer.currentTime = diffsec;
+        audioPlayer.play();
+    }
 }
 </script>
 
