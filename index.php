@@ -6,31 +6,41 @@
 </head>
 <body>
 
-    <h1>wikiradio</h1>
+    <div id="wikiradio">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8b/Nuvola_apps_remote_green.png/50px-Nuvola_apps_remote_green.png" />
+        wikiradio
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8b/Nuvola_apps_remote_green.png/50px-Nuvola_apps_remote_green.png" />
+    </div>
     
     <div id="channels">
-        <p>By language: 
-        <a href="index.php">Main</a> · 
+        <p><b>Spoken Wikipedia:</b> 
         <a href="index.php?channel=ar">العربية</a> · 
-        <a href="index.php?channel=ca">Català</a> · 
-        <a href="index.php?channel=de">Deutsch</a> · 
+        Català · 
+        Deutsch · 
         <a href="index.php?channel=en">English</a> · 
         <a href="index.php?channel=es">Español</a> · 
-        <a href="index.php?channel=fr">Français</a> · 
+        Français · 
         <a href="index.php?channel=gl">Galego</a> · 
         <a href="index.php?channel=pt">Português</a>
         </p>
         
-        <p>By genre:
+        <p><b>Music:</b> 
+        <a href="index.php?channel=classic">Classic</a> · 
+        <a href="index.php?channel=india">India</a> · 
         <a href="index.php?channel=tango">Tango</a>
         </p>
         
-        <p>By topic:</p>
+        <p><b>Topics:</b> 
         Birds · 
         Nature
+        </p>
     </div>
     
-    <div id="listening">You are listening:<br/><br/><span id="audioDescription"></span></div>
+    <div id="listening">
+        <b>You are listening</b>
+        <br/><br/>
+        <span id="audioDescription"></span>
+    </div>
 
     <audio id="audioPlayer">
     Your browser does not support the HTML5 Audio element.
@@ -45,14 +55,14 @@
     <div id="author"><a href="https://github.com/emijrp/wikiradio">Coded</a> by <a href="https://en.wikipedia.org/wiki/User:Emijrp">emijrp</a></div>
 
 <?php    
-    $channels = ["all", "ar", "en", "es", "gl", "pt", "tango"];
-    $channel = "all";
+    $channels = ["all", "ar", "en", "es", "gl", "pt", "classic", "india", "tango"];
+    $channel = "classic";
     if (isset($_GET["channel"])){
         $temp = $_GET["channel"];
         if (in_array($temp, $channels))
             $channel = $temp;
     }
-    if ($channel == "all"){
+    if ($channel == "classic"){
         echo '<script src="tracks.js"></script>';
     }else{
         echo '<script src="tracks-'.$channel.'.js"></script>';
