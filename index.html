@@ -9,30 +9,65 @@
 
 <h1>wikiradio</h1>
 
-<p id="audioDescription"><a href="https://commons.wikimedia.org/wiki/File:Claude_Debussy_-_La_fille_aux_cleveux_de_lin_-_David_Hernando_Vitores_-_Kayoko_Morimoto_%28Wasei_Duo%29.ogg">La fille aux cleveux de lin</a></p>
+<p>Estás escuchando: <span id="audioDescription"></span></p>
 
-<audio id="audioPlayer" src="https://upload.wikimedia.org/wikipedia/commons/4/47/Claude_Debussy_-_La_fille_aux_cleveux_de_lin_-_David_Hernando_Vitores_-_Kayoko_Morimoto_%28Wasei_Duo%29.ogg" autoplay autobuffer controls />
+<audio id="audioPlayer">
+Your browser does not support the HTML5 Audio element.
+</audio>
 
+<p id="data"></p>
 
 <script type="text/javascript">
 var ArraySongs = [
-["La fille aux cleveux de lin", "https://commons.wikimedia.org/wiki/File:Claude_Debussy_-_La_fille_aux_cleveux_de_lin_-_David_Hernando_Vitores_-_Kayoko_Morimoto_%28Wasei_Duo%29.ogg",  "https://upload.wikimedia.org/wikipedia/commons/4/47/Claude_Debussy_-_La_fille_aux_cleveux_de_lin_-_David_Hernando_Vitores_-_Kayoko_Morimoto_%28Wasei_Duo%29.ogg"], 
-["Menuet Nº3 de la petite Suite",
-"https://commons.wikimedia.org/wiki/File:Claude_Debussy_-_Menuet_N%C2%BA3_de_la_petite_Suite_-_David_Hernando_Vitores_-_Kayoko_Morimoto_%28Wasei_Duo%29.ogg",  "https://upload.wikimedia.org/wikipedia/commons/7/7a/Claude_Debussy_-_Menuet_N%C2%BA3_de_la_petite_Suite_-_David_Hernando_Vitores_-_Kayoko_Morimoto_%28Wasei_Duo%29.ogg"], 
-["Rêverie - Arr for Soprano saxophone and piano", "https://commons.wikimedia.org/wiki/File:Claude_Debussy_-_R%C3%AAverie_-_Arr_for_Soprano_saxophone_and_piano_-_David_Hernando_Vitores.ogg", "https://upload.wikimedia.org/wikipedia/commons/c/c0/Claude_Debussy_-_R%C3%AAverie_-_Arr_for_Soprano_saxophone_and_piano_-_David_Hernando_Vitores.ogg"], 
+["La fille aux cleveux de lin", "Claude Debussy - La fille aux cleveux de lin - David Hernando Vitores - Kayoko Morimoto (Wasei Duo).ogg", "47", 135],
+["Menuet Nº3 de la petite Suite", "Claude Debussy - Menuet Nº3 de la petite Suite - David Hernando Vitores - Kayoko Morimoto (Wasei Duo).ogg",  "7a", 161], 
+["Rêverie - Arr for Soprano saxophone and piano", "Claude Debussy - Rêverie - Arr for Soprano saxophone and piano - David Hernando Vitores.ogg", "c0", 281], 
 ]
-var i = 1;
-var audioPlayer = document.getElementById('audioPlayer');
-var audioDescription = document.getElementById('audioDescription');
+var totalLength = 0;
+for (var i=0;i<ArraySongs.length;i++) {
+    totalLength += ArraySongs[i][3];
+}
+var date = new Date();
+var dateutc = date.toUTCString();
+var data = document.getElementById('data');
+var epoch = Math.round(new Date() / 1000);
+var diffsec = epoch % totalLength;
+data.innerHTML = 'UTC: ' + dateutc + '<br/>Epoch: ' + epoch + '<br/>Total length: ' + totalLength + '<br/>%: ' + diffsec;
 
-audioPlayer.onended = function(){
-    audioDescription.innerHTML = '<a href="' + ArraySongs[i][1] + '">' + ArraySongs[i][0] + '</a>';
-    audioPlayer.src = ArraySongs[i][2];
-    if (i < ArraySongs.length - 1) {
-        i++;
-    } else {
-        i = 0;
+var songID = 0;
+for (var i=0;i<ArraySongs.length;i++) {
+    songID = i;
+    if (diffsec <= ArraySongs[i][3]) {
+        playthisfrom(songID, diffsec);
+    }else{
+        diffsec -= ArraySongs[i][3];
     }
+}
+
+var audioPlayer = document.getElementById('audioPlayer');
+/*audioPlayer.onended = function(){
+    if (songID < ArraySongs.length - 1) {
+        songID++;
+    } else {
+        songID = 0;
+    }
+    playthis(songID);
+}*/
+
+function playthis(songID){
+    document.write('Playing ' + ArraySongs[songID][0] + ' from ' + diffsec);
+    var audioPlayer = document.getElementById('audioPlayer');
+    var audioDescription = document.getElementById('audioDescription');
+    
+    audioDescription.innerHTML = '<a href="https://commons.wikimedia.org/wiki/File:' + ArraySongs[songID][1].replace(/ /g,'_') + '">' + ArraySongs[songID][0] + '</a>';
+    audioPlayer.src = 'https://upload.wikimedia.org/wikipedia/commons/' + ArraySongs[songID][2][0] + '/' + ArraySongs[songID][2] + '/' + ArraySongs[songID][1].replace(/ /g,'_');
+    audioPlayer.play();
+}
+
+function playthisfrom(songID, diffsec){
+    playthis(songID);
+    var audioPlayer = document.getElementById('audioPlayer');
+    audioPlayer.currentTime = diffsec;
 }
 </script>
 
