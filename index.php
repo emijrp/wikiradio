@@ -26,7 +26,6 @@
         </p>
         
         <p><b>Music:</b> 
-        All · 
         <a href="index.php?channel=classic">Classic</a> · 
         <a href="index.php?channel=india">India</a> · 
         <a href="index.php?channel=tango">Tango</a> · 
