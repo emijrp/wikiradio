@@ -1,2 +1,2 @@
 # wikiradio
-A radio for Wikimedia Commons music files
+A radio for Wikimedia Commons audio files
