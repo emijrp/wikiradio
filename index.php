@@ -22,6 +22,7 @@
         Français · 
         <a href="index.php?channel=gl">Galego</a> · 
         <a href="index.php?channel=pt">Português</a> · 
+        <a href="index.php?channel=ru">Русский</a> · 
         All
         </p>
         
@@ -34,7 +35,7 @@
         
         <p><b>Topics:</b> 
         <a href="index.php?channel=anthems">Anthems</a> · 
-        Birds · 
+        <a href="index.php?channel=birds">Birds</a> · 
         Nature · 
         All
         </p>
@@ -59,9 +60,9 @@
     <div id="author"><a href="https://github.com/emijrp/wikiradio">Coded</a> by <a href="https://en.wikipedia.org/wiki/User:Emijrp">emijrp</a></div>
 
 <?php    
-    $spoken = ["ar", "en", "es", "gl", "pt"];
+    $spoken = ["ar", "en", "es", "gl", "pt", "ru"];
     $music = ["classic", "india", "tango"];
-    $topics = ["anthems"];
+    $topics = ["anthems", "birds"];
     $channels = array_merge($spoken, $music);
     $channels = array_merge($channels, $topics);
     $channel = "classic";
