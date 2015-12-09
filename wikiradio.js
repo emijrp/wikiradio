@@ -19,9 +19,10 @@ for (var i=0;i<ArrayTracks.length;i++) {
     if (diffsec <= ArrayTracks[i][3]) {
         playTrackFrom();
         break;
-    }else{
-        diffsec -= ArrayTracks[i][3];
     }
+    
+    diffsec -= ArrayTracks[i][3];
+    
 }
 
 hourlySignal();
