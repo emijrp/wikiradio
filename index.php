@@ -71,11 +71,9 @@
         if (in_array($temp, $channels))
             $channel = $temp;
     }
-    if ($channel == "classic"){
-        echo '<script src="tracks.js"></script>';
-    }else{
-        echo '<script src="tracks-'.$channel.'.js"></script>';
-    }
+
+    echo '<script src="tracks-'.$channel.'.js"></script>';
+
 ?>
     <script src="wikiradio.js"></script>
     
