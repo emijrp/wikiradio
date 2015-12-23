@@ -72,7 +72,7 @@
             $channel = $temp;
     }
 
-    echo '<script src="playlist.php?name='.$channel.'"></script>';
+    echo '<script src="tracks-'.$channel.'.js"></script>';
 ?>
     <script src="wikiradio.js"></script>
     

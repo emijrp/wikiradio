@@ -1,0 +1,14 @@
+<html>
+<head>
+<script src="jquery.js"></script>
+</head>
+<body>
+<div id="replacementme" style="white-space:nowrap; overflow:auto; width:100%;"></div>
+<script type="text/javascript">
+function cacheAPIcall(rspn){
+	document.getElementById("replacementme").innerHTML=rspn.parse.text['*'];
+}
+</script>
+<script type="text/javascript" src="https://meta.wikimedia.org/w/api.php?action=parse&amp;format=json&amp;callback=cacheAPIcall&amp;redirects&amp;page=Wikiradio_(tool)/playlist/es&amp;smaxage=2592000"></script>
+</body>
+</html>
