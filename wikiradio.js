@@ -1,3 +1,9 @@
+function setvolume(){
+	vid.volume = volumeslider.value / 100;
+}
+volumeslider = document.getElementById("volumeslider");
+volumeslider.addEventListener("change",setvolume,false);
+
 var totalLength = 0;
 for (var i=0;i<ArrayTracks.length;i++) {
     totalLength += ArrayTracks[i][3];
