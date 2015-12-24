@@ -27,3 +27,6 @@
     margin: 80px auto auto auto;
     text-align: center;
 }
+input#volumeslider{ 
+    width: 60px;
+}
