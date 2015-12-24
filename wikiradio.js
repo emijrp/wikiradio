@@ -73,8 +73,8 @@ function hourlySignal(){
     }
 }
 //Volume control
+volumeslider = document.getElementById("volumeslider");
 function setvolume(){
 	audioPlayer.volume = volumeslider.value / 100;
 }
-volumeslider = document.getElementById("volumeslider");
 volumeslider.addEventListener("change",setvolume,false);
