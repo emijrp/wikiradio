@@ -1,12 +1,21 @@
 #wikiradio {
     width: 70%;
-    font-weight: bold;
-    font-size: 400%;
-    margin: 50px auto 30px auto;
+    margin: 0px auto 30px auto;
     text-align: center;
-    background-color: rgba(255,100,100,0.8);
-    box-shadow: 0 0 15px rgba(0,0,0,0.2);
-    border-radius: 5px;
+
+    
+}
+#mw-page-base {
+    background-color: #ffffff;
+    background-image: linear-gradient(#ffffff 50%, #f6f6f6 100%);
+    background-position: left bottom;
+    background-repeat: repeat-x;
+    height: 5em;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 100%;
+    z-index: -1;
 }
 #channels {
     width: 70%;
@@ -18,8 +27,7 @@
     width: 400px;
     margin: 50px auto auto auto;
     text-align: center;
-    background-color: rgba(100,255,100,0.8);
-    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+    background-color: rgba(100,255,100,0.5);
     border-radius: 5px;
 }
 #author {
@@ -42,4 +50,8 @@ input#volumeslider::-webkit-slider-thumb {
     opacity: 0.5;
     width: 10px;
     height: 20px;
+}
+
+body {
+    background-color: #f6f6f6;
 }
