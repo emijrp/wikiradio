@@ -57,7 +57,7 @@
 
     <p id="data"></p>
     
-    <div id="author"><a href="https://meta.wikimedia.org/wiki/Wikiradio_(tool)">Project page</a>. <small><a href="https://github.com/emijrp/wikiradio">Coded</a> by <a href="https://en.wikipedia.org/wiki/User:Emijrp">emijrp</a> &amp; <a href="https://commons.wikimedia.org/wiki/User:The_Photographer">The Photographer</a></small></div>
+    <div id="author"><a href="https://meta.wikimedia.org/wiki/Wikiradio_(tool)">Project page</a>. <small><a href="https://github.com/emijrp/wikiradio">Coded</a> by <a href="https://github.com/emijrp/wikiradio/graphs/contributors">contributors</a></small></div>
 
 <?php    
     $spoken = ["ar", "en", "es", "gl", "pt", "ru"];
