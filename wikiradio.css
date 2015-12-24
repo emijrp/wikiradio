@@ -33,6 +33,7 @@ input#volumeslider {
     background-color: silver;
     width: 60px;
     height:14px;
+    cursor:pointer;
 }
 
 input#volumeslider::-webkit-slider-thumb {
@@ -41,5 +42,4 @@ input#volumeslider::-webkit-slider-thumb {
     opacity: 0.5;
     width: 10px;
     height: 20px;
-    cursor:pointer;
 }
