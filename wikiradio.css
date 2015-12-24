@@ -1,9 +1,7 @@
 #wikiradio {
     width: 70%;
     margin: 0px auto 30px auto;
-    text-align: center;
-
-    
+    text-align: center;    
 }
 #mw-page-base {
     background-color: #ffffff;
@@ -53,7 +51,8 @@ input#volumeslider::-webkit-slider-thumb {
 }
 
 #audioDescription {
-    float:left
+    float:left;
+    font-size:small
 }
 body {
     background-color: #f6f6f6;
