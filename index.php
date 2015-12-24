@@ -42,6 +42,7 @@
     </div>
     
     <div id="listening">
+        <input id="volumeslider" type="range" min="0" max="100" value="100" step="1">
         <b>You are listening</b>
         <br/><br/>
         <span id="audioDescription"></span>
