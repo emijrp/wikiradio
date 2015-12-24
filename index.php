@@ -47,9 +47,9 @@
         </div>
         <div style="float:left"><b>You are listening</b></div>
         <br><br>
-        <div style="float:left">
+        
          <span id="audioDescription"></span>
-        </div>
+      
     </div>
 
     <audio id="audioPlayer">
