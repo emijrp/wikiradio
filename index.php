@@ -71,11 +71,13 @@
         if (in_array($temp, $channels))
             $channel = $temp;
     }
-
+    //Load the playlist
     echo '<script src="playlist.php?name='.$channel.'" charset="UTF-8"></script>';
 ?>
-    <script src="wikiradio.js"></script>
+    <script src="wikiradio.js" charset="UTF-8"></script>
     
-</body>
+ </body>
 
 </html>
+
+

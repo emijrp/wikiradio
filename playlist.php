@@ -1,4 +1,6 @@
 <?php
+header('Content-Type: text/html; charset=utf-8');
+
 $url = 'https://meta.wikimedia.org/w/api.php?action=query&prop=revisions&titles=Wikiradio_(tool)/playlist/'.$_GET['name'].'&rvprop=content&formatversion=2&format=json';
 
 $options = array(
@@ -12,5 +14,5 @@ $options = array(
 
 $context = stream_context_create($options);
 $file = json_decode(file_get_contents($url, false, $context),true);
-echo utf8_decode($file['query']['pages'][0]['revisions'][0]['content']);
+echo $file['query']['pages'][0]['revisions'][0]['content'];
 ?>
