@@ -41,4 +41,5 @@ input#volumeslider::-webkit-slider-thumb {
     opacity: 0.5;
     width: 10px;
     height: 20px;
+    cursor:pointer;
 }
