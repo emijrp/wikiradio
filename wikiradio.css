@@ -29,4 +29,7 @@
 }
 input#volumeslider{ 
     width: 60px;
+    border-radius: 4px;
+    background: rgba(100,255,100,0.8);  /* this is a green */
+    
 }
