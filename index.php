@@ -1,7 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <head>
     <title>wikiradio</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="UTF-8"> 
     <link rel="stylesheet" type="text/css" href="wikiradio.css" media="screen" />
 </head>
 <body>
@@ -57,7 +57,7 @@
 
     <p id="data"></p>
     
-    <div id="author"><a href="https://github.com/emijrp/wikiradio">Coded</a> by <a href="https://en.wikipedia.org/wiki/User:Emijrp">emijrp</a></div>
+    <div id="author"><a href="https://meta.wikimedia.org/wiki/Wikiradio_(tool)">Project page</a>. <a href="https://github.com/emijrp/wikiradio">Coded</a> by <a href="https://en.wikipedia.org/wiki/User:Emijrp">emijrp</a>,<a href="https://commons.wikimedia.org/wiki/User:The_Photographer">The Photographer</a></div>
 
 <?php    
     $spoken = ["ar", "en", "es", "gl", "pt", "ru"];

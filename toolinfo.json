@@ -1,0 +1,9 @@
+{
+    "name" : "wikiradio",
+    "title" : "Audio service via Internet",
+    "description" : "wikiradio is an audio service transmitted via Internet streaming. This service offer play various genres of music—every and record of Wikipedia articles on differents languages in audio format that is available on wikimedia commons. Each sound is the that the community has chosen to be highlighted as some of the finest on Wikipedia and Commons.",
+    "url" : "https://meta.wikimedia.org/wiki/Wikiradio_(tool)",
+    "keywords" : "audio, sound, streaming, commons, play, playlist, wikiradio",
+    "author" : "[[User:Emijrp]] and [[User:The Photographer]]",
+    "repository" : "https://github.com/emijrp/wikiradio"
+}
