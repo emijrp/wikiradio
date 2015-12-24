@@ -1,9 +1,3 @@
-function setvolume(){
-	vid.volume = volumeslider.value / 100;
-}
-volumeslider = document.getElementById("volumeslider");
-volumeslider.addEventListener("change",setvolume,false);
-
 var totalLength = 0;
 for (var i=0;i<ArrayTracks.length;i++) {
     totalLength += ArrayTracks[i][3];
@@ -78,3 +72,9 @@ function hourlySignal(){
         setTimeout(playHourlySignal,(60*(59-min)+(59-sec))*1000);
     }
 }
+//Volume control
+function setvolume(){
+	audioPlayer.volume = volumeslider.value / 100;
+}
+volumeslider = document.getElementById("volumeslider");
+volumeslider.addEventListener("change",setvolume,false);
