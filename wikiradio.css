@@ -27,10 +27,18 @@
     margin: 80px auto auto auto;
     text-align: center;
 }
-input#volumeslider{ 
+
+input#volumeslider {
+    -webkit-appearance: none;
+    background-color: silver;
     width: 60px;
-    border-radius: 4px;
-    background: rgba(100,255,100,0.8);  /* this is a green */
-    cursor: pointer;
-    
-} 
+    height:14px;
+}
+
+input#volumeslider::-webkit-slider-thumb {
+     -webkit-appearance: none;
+    background: rgba(100,255,100,0.8);
+    opacity: 0.5;
+    width: 10px;
+    height: 20px;
+}
