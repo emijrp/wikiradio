@@ -57,7 +57,7 @@
 
     <p id="data"></p>
     
-    <div id="author"><a href="https://meta.wikimedia.org/wiki/Wikiradio_(tool)">Project page</a>. <a href="https://github.com/emijrp/wikiradio">Coded</a> by <a href="https://en.wikipedia.org/wiki/User:Emijrp">emijrp</a>,<a href="https://commons.wikimedia.org/wiki/User:The_Photographer">The Photographer</a></div>
+    <div id="author"><a href="https://meta.wikimedia.org/wiki/Wikiradio_(tool)">Project page</a>. <small><a href="https://github.com/emijrp/wikiradio">Coded</a> by <a href="https://en.wikipedia.org/wiki/User:Emijrp">emijrp</a> &amp; <a href="https://commons.wikimedia.org/wiki/User:The_Photographer">The Photographer</a></small></div>
 
 <?php    
     $spoken = ["ar", "en", "es", "gl", "pt", "ru"];
@@ -72,7 +72,7 @@
             $channel = $temp;
     }
 
-    echo '<script src="playlist.php?name='.$channel.'"></script>';
+    echo '<script src="playlist.php?name='.$channel.'" charset="UTF-8"></script>';
 ?>
     <script src="wikiradio.js"></script>
     
