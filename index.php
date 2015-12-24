@@ -6,10 +6,9 @@
 </head>
 <body>
 
-    <div id="wikiradio">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8b/Nuvola_apps_remote_green.png/50px-Nuvola_apps_remote_green.png" />
-        wikiradio
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8b/Nuvola_apps_remote_green.png/50px-Nuvola_apps_remote_green.png" />
+    <div id="mw-page-base"></div>
+    <div id="wikiradio" >
+        <img src="https://upload.wikimedia.org/wikipedia/commons/5/53/Wikiradio-logo.svg" width="180">
     </div>
     
     <div id="channels">
@@ -42,10 +41,15 @@
     </div>
     
     <div id="listening">
-        volume: <input id="volumeslider" type="range" min="0" max="100" value="100" step="1"><br/>
-        <b>You are listening</b>
-        <br/><br/>
-        <span id="audioDescription"></span>
+        <div style="float:right">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/3/39/High-contrast-audio-volume-high.svg" width="15" />
+            <input id="volumeslider" type="range" min="0" max="100" value="100" step="1">
+        </div>
+        <div style="float:left"><b>You are listening</b></div>
+        <br><br>
+        <div style="float:left">
+         <span id="audioDescription"></span>
+        </div>
     </div>
 
     <audio id="audioPlayer">
