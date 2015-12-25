@@ -12,6 +12,7 @@ var diffsec = epoch % totalLength;
 var audioPlayer = document.getElementById('audioPlayer');
 var audioDescription = document.getElementById('audioDescription');
 var audioPlayerAux = document.getElementById('audioPlayerAux');
+var listening = document.getElementById('listening');
 
 var trackID = 0;
 for (var i=0;i<ArrayTracks.length;i++) {
@@ -30,7 +31,7 @@ hourlySignal();
 function playTrack(){
     audioDescription.innerHTML = '<a href="https://commons.wikimedia.org/wiki/File:' + ArrayTracks[trackID][1].replace(/ /g,'_') + '">' + ArrayTracks[trackID][0] + '</a>';
     //update height description
-    audioDescription.setAttribute("style","width:"+audioDescription.clientHeight+"px"); 
+    listening.setAttribute("style","width:"+listening.clientHeight+"px"); 
     audioPlayer.src = 'https://upload.wikimedia.org/wikipedia/commons/' + ArrayTracks[trackID][2][0] + '/' + ArrayTracks[trackID][2] + '/' + ArrayTracks[trackID][1].replace(/ /g,'_');
     audioPlayer.play();
     audioPlayer.ondurationchange = function() {
