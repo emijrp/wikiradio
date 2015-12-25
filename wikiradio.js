@@ -31,7 +31,7 @@ hourlySignal();
 function playTrack(){
     audioDescription.innerHTML = '<a href="https://commons.wikimedia.org/wiki/File:' + ArrayTracks[trackID][1].replace(/ /g,'_') + '">' + ArrayTracks[trackID][0] + '</a>';
     //update height description
-    listening.setAttribute("style","height:"+listening.clientHeight+"px"); 
+    listening.style.height = listening.offsetHeight+"px"; 
     audioPlayer.src = 'https://upload.wikimedia.org/wikipedia/commons/' + ArrayTracks[trackID][2][0] + '/' + ArrayTracks[trackID][2] + '/' + ArrayTracks[trackID][1].replace(/ /g,'_');
     audioPlayer.play();
     audioPlayer.ondurationchange = function() {
