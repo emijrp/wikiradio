@@ -32,7 +32,7 @@ function playTrack(){
     audioDescription.innerHTML = '<a href="https://commons.wikimedia.org/wiki/File:' + ArrayTracks[trackID][1].replace(/ /g,'_') + '">' + ArrayTracks[trackID][0] + '</a>';
     //update height description
     console.log(listening.offsetHeight);
-    listening.style.height = listening.offsetHeight+"px"; 
+    listening.style.height = getHeight(listening)+"px"; 
     audioPlayer.src = 'https://upload.wikimedia.org/wikipedia/commons/' + ArrayTracks[trackID][2][0] + '/' + ArrayTracks[trackID][2] + '/' + ArrayTracks[trackID][1].replace(/ /g,'_');
     audioPlayer.play();
     audioPlayer.ondurationchange = function() {
@@ -82,3 +82,14 @@ function setvolume(){
 	audioPlayer.volume = volumeslider.value / 100;
 }
 volumeslider.addEventListener("change",setvolume,false);
+
+function getHeight(oDiv) {
+    var sOriginalOverflow = oDiv.style.overflow;
+    var sOriginalHeight = oDiv.style.height;
+    oDiv.style.overflow = "";
+    oDiv.style.height = "";
+    var height = oDiv.offsetHeight;
+    oDiv.style.height = sOriginalHeight;
+    oDiv.style.overflow = sOriginalOverflow;
+    return height;
+}
