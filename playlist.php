@@ -31,7 +31,7 @@ function getFileUrl($filename)
   $url = API_URL.'?action=query&prop=revisions&titles='.$filename.'&prop=imageinfo&iiprop=url&format=json';
   echo $url;
   $file = getWikiPageContent($url);
-  return reset(json_decode($file['query']['pages'],true))['imageinfo'][0]['url'];
+  return $file['query']['pages'];//['imageinfo'][0]['url'];
 }
 
 if (isset($_GET['name']))
