@@ -21,7 +21,7 @@ function getWikiPageContent($url)
 
 function getPlaylist($name)
 {
-  $url = API_URL.'?action=query&prop=revisions&titles='.PLAYLIST_PAGE.$name.'&rvprop=content&formatversion=2&format=json';
+  $url = API_URL.'?action=query&titles='.PLAYLIST_PAGE.$name.'&rvprop=content&formatversion=2&format=json';
   $file = getWikiPageContent($url);
   return $file['query']['pages'][0]['revisions'][0]['content'];
 }
