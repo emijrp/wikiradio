@@ -26,7 +26,15 @@ function getPlaylist($name)
   return $file['query']['pages'][0]['revisions'][0]['content'];
 }
 
+function getFileUrl($filename)
+{
+  $url = API_URL.'?action=query&prop=revisions&titles='.$filename.'&prop=imageinfo&iiprop=url&format=json';
+  $file = getWikiPageContent($url);
+  return $file['query']['pages']{0}['imageinfo'][0]['url'];
+}
+
 if (isset($_GET['name']))
   echo getPlaylist($_GET['name']);
-
+if (isset($_GET['filename']))
+  echo getFileUrl($_GET['filename'])
 ?>
