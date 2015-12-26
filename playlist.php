@@ -42,7 +42,7 @@ function getPlaylist($name)
 //Get Sound file list
 function getFilesArray($content)
 {
-  preg_match_all('!\[\[File:(.*?)\.ogg!',  $content, $m);
+  preg_match_all('/\[\[\:File\:(.+)\.ogg\]\]/',  $content, $m);
   return $m[1];
 }
 //Get sound info url and duration
