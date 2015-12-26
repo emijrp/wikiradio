@@ -43,6 +43,6 @@ function getFileUrl($filename)
 
 if (isset($_GET['name']))
   echo getPlaylist($_GET['name']);
-if (isset($_GET['filename']))
-  echo getFileUrl($_GET['filename']);
+if (isset($_GET['getFileUrl']))
+  echo getFileUrl($_GET['getFileUrl']);
 ?>
