@@ -29,14 +29,13 @@ function getPlaylist($name)
 function getFileUrl($filename)
 {
   $url = API_URL.'?action=query&prop=revisions&titles='.$filename.'&prop=imageinfo&iiprop=url&format=json';
-  echo $url;
   $file = getWikiPageContent($url);
   //return $file['query']['pages'];//['imageinfo'][0]['url'];
-  return array_values($file['query']['pages'])[0];
+  print_r array_values($file['query']['pages'])[0];
 }
 
 if (isset($_GET['name']))
   echo getPlaylist($_GET['name']);
 if (isset($_GET['filename']))
-  echo getFileUrl($_GET['filename']);
+  getFileUrl($_GET['filename']);
 ?>
