@@ -6,7 +6,7 @@ define("PLAYLIST_PAGE", "Wikiradio_(tool)/playlist/");
 
 function getWikiPageContent($url)
 {
-  $url str_replace(' ','_',$url);
+  $url = str_replace(' ','_',$url);
   $options = array(
     'http'=>array(
       'method'=>"GET",
