@@ -6,6 +6,7 @@ define("PLAYLIST_PAGE", "Wikiradio_(tool)/playlist/");
 
 function getWikiPageContent($url)
 {
+  $url str_replace(' ','_',$url);
   $options = array(
     'http'=>array(
       'method'=>"GET",
@@ -23,7 +24,10 @@ function getPlaylist($name)
 {
   $url = API_URL.'?action=query&titles='.PLAYLIST_PAGE.$name.'&rvprop=content&formatversion=2&format=json';
   $file = getWikiPageContent($url);
-  return $file['query']['pages'][0]['revisions'][0]['content'];
+  if (!is_null($file))
+    return $file['query']['pages'][0]['revisions'][0]['content'];
+  else
+    echo "Playlist is null"
 }
 
 function getFileUrl($filename)
@@ -31,8 +35,8 @@ function getFileUrl($filename)
   $url = API_URL.'?action=query&prop=revisions&titles='.$filename.'&prop=imageinfo&iiprop=url&format=json';
   $file = getWikiPageContent($url);
   //return $file['query']['pages'];//['imageinfo'][0]['url'];
-  //var_dump($file['query']['pages']);
-  var_dump($file);
+  var_dump($file['query']['pages'][0]);
+  //var_dump($file);
 }
 
 if (isset($_GET['name']))
