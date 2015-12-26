@@ -26,6 +26,7 @@ function getWikiPageContent($name)
   //API query
   $name = str_replace(' ','_',$name);
   $url = API_URL.'titles='.$name.'&rvprop=content&formatversion=2&format=json';
+  echo $url;
   $file = getAPI($url);
   if (!is_null($file))
     return $file['query']['pages'][0]['revisions'][0]['content'];
