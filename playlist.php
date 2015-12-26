@@ -1,12 +1,12 @@
 <?php
 header('Content-Type: text/html; charset=utf-8');
 //Constants
-define("API_URL", "https://meta.wikimedia.org/w/api.php");
-define("PLAYLIST_PAGE", "Wikiradio_(tool)/playlist/");
+define("API_URL", "https://meta.wikimedia.org/w/api.php?action=query&");
+define("PLAYLIST_PREFIX", "Wikiradio_(tool)/playlist/");
 
-function getWikiPageContent($url)
+//Get api request
+function getAPI($url)
 {
-  $url = str_replace(' ','_',$url);
   $options = array(
     'http'=>array(
       'method'=>"GET",
@@ -20,29 +20,50 @@ function getWikiPageContent($url)
   return json_decode(file_get_contents($url, false, $context),true);
 }
 
-function getPlaylist($name)
+//Get wiki page content
+function getWikiPageContent($name)
 {
-  $url = API_URL.'?action=query&titles='.PLAYLIST_PAGE.$name.'&rvprop=content&formatversion=2&format=json';
-  $file = getWikiPageContent($url);
+  //API query
+  $url = API_URL.'titles='.$name.'&rvprop=content&formatversion=2&format=json';
+  $url = str_replace(' ','_',$url);
+  $file = getAPI($url);
   if (!is_null($file))
     return $file['query']['pages'][0]['revisions'][0]['content'];
   
-  return "Playlist is null";
+  return "Page is null";
 }
 
-function getFileUrl($filename)
+//Get Playlist page content
+function getPlaylist($name)
 {
-  $url = API_URL.'?action=query&prop=revisions&titles='.$filename.'&prop=imageinfo&iiprop=url&format=json';
-  $file = getWikiPageContent($url);
+  return getWikiPageContent(PLAYLIST_PREFIX.$name);
+}
 
+//Get sound info url and duration
+function getFileIfo($filename)
+{
+  //API query
+  $url = API_URL.'prop=revisions&titles=File:'.$filename.'&prop=imageinfo&iiprop=url|dimensions&format=json';
+  //get page content
+  $file = getAPI($url);
+  
+  //Null validation
   if(!is_null(reset($file['query']['pages'])['imageinfo'][0]['url']))
-    return reset($file['query']['pages'])['imageinfo'][0]['url'];
+  {
+    $des = reset($file['query']['pages'])['imageinfo'][0];
+    $arrayResult = array(
+        "url"=>$des['url'], 
+        "duration"=>$des['duration']
+    ); 
+    
+    return json_encode($arrayResult);
+  }
   
   return "URL is null";
 }
 
 if (isset($_GET['name']))
   echo getPlaylist($_GET['name']);
-if (isset($_GET['getFileUrl']))
-  echo getFileUrl($_GET['getFileUrl']);
+if (isset($_GET['getFileIfo']))
+  echo getFileIfo($_GET['getFileIfo']);
 ?>
