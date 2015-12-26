@@ -26,8 +26,8 @@ function getPlaylist($name)
   $file = getWikiPageContent($url);
   if (!is_null($file))
     return $file['query']['pages'][0]['revisions'][0]['content'];
-  else
-    echo "Playlist is null"
+  
+  return "Playlist is null";
 }
 
 function getFileUrl($filename)
@@ -35,8 +35,8 @@ function getFileUrl($filename)
   $url = API_URL.'?action=query&prop=revisions&titles='.$filename.'&prop=imageinfo&iiprop=url&format=json';
   $file = getWikiPageContent($url);
   //return $file['query']['pages'];//['imageinfo'][0]['url'];
-  var_dump($file['query']['pages']);
-  //var_dump($file);
+  //var_dump($file['query']['pages']);
+  var_dump($file);
 }
 
 if (isset($_GET['name']))
