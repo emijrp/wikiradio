@@ -1,7 +1,7 @@
 <?php
 header('Content-Type: text/html; charset=utf-8');
 //Constants
-define("API_URL", "https://meta.wikimedia.org/w/api.php?action=query&");
+define("API_URL", "https://meta.wikimedia.org/w/api.php?action=query&prop=revisions&titles=");
 define("PLAYLIST_PREFIX", "Wikiradio_(tool)/playlist/");
 
 //Get api request
@@ -25,8 +25,7 @@ function getWikiPageContent($name)
 {
   //API query
   $name = str_replace(' ','_',$name);
-  $url = API_URL.'prop=revisions&titles='.$name.'&rvprop=content&formatversion=2&format=json';
-  echo $url;
+  $url = API_URL.$name.'&rvprop=content&formatversion=2&format=json';
   $file = getAPI($url);
   if (!is_null($file))
     return $file['query']['pages'][0]['revisions'][0]['content'];
@@ -44,7 +43,7 @@ function getPlaylist($name)
 function getFileIfo($filename)
 {
   //API query
-  $url = API_URL.'prop=revisions&titles=File:'.$filename.'&prop=imageinfo&iiprop=url|dimensions&format=json';
+  $url = API_URL.'File:'.$filename.'&prop=imageinfo&iiprop=url|dimensions&format=json';
   //get page content
   $file = getAPI($url);
   
