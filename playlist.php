@@ -32,11 +32,11 @@ function getFileUrl($filename)
   echo $url;
   $file = getWikiPageContent($url);
   //return $file['query']['pages'];//['imageinfo'][0]['url'];
-  return $file; 
+  return array_values($file['query']['pages'])[0];
 }
 
 if (isset($_GET['name']))
   echo getPlaylist($_GET['name']);
 if (isset($_GET['filename']))
-  print_r(getFileUrl($_GET['filename']));
+  echo getFileUrl($_GET['filename']);
 ?>
