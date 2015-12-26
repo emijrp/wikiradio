@@ -34,13 +34,15 @@ function getFileUrl($filename)
 {
   $url = API_URL.'?action=query&prop=revisions&titles='.$filename.'&prop=imageinfo&iiprop=url&format=json';
   $file = getWikiPageContent($url);
-  //return $file['query']['pages'];//['imageinfo'][0]['url'];
-  var_dump(reset($file['query']['pages'])['imageinfo'][0]['url']);
-  //var_dump($file);
+
+  if(!is_null(reset($file['query']['pages'])['imageinfo'][0]['url']))
+    return reset($file['query']['pages'])['imageinfo'][0]['url'];
+  
+  return "URL is null";
 }
 
 if (isset($_GET['name']))
   echo getPlaylist($_GET['name']);
 if (isset($_GET['filename']))
-  getFileUrl($_GET['filename']);
+  recho getFileUrl($_GET['filename']);
 ?>
