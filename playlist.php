@@ -44,5 +44,5 @@ function getFileUrl($filename)
 if (isset($_GET['name']))
   echo getPlaylist($_GET['name']);
 if (isset($_GET['filename']))
-  recho getFileUrl($_GET['filename']);
+  echo getFileUrl($_GET['filename']);
 ?>
