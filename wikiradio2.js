@@ -122,7 +122,7 @@ $.getJSON( "playlist.php", { getList: getList} )
   .done(function( JsonTracks ) {
     console.log(JsonTracks);
     var totalLength = getTotalDuration(JsonTracks);
-    console.log('totalLenght='+localLenght);
+    console.log('totalLenght='+totalLenght);
     
     var diffsec = getDiffsec(totalLength);
     console.log('diffsec='+diffsec);
