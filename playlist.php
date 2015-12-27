@@ -99,6 +99,7 @@ function getList($pagename)
 {
   $resultList = array();
   $list = getFilesFromPage($pagename);
+  var_dump($list);
   //It should be only a request for each 50 files list
   foreach ($list as $e) {
     if (isValidSoundExt($e->title))
