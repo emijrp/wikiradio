@@ -92,7 +92,6 @@ function isValidSoundExt($filename)
 {
   //Last 3 chars
   $fileext = strtolower(substr($filename, -3));
-  var_dump($fileext);
   $validext =  array("wav", "ogg", "flac");
   return (in_array($fileext, $validext));
 }
@@ -102,7 +101,9 @@ function getList($pagename)
   $resultList = array();
   $list = getFilesFromPage($pagename);
   //It should be only a request for each 50 files list
+  
   foreach ($list as $e) {
+    var_dump($e);
     if (isValidSoundExt($e->title))
     {
       $fileInfo = getFileIfo($e->title);
