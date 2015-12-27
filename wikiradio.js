@@ -64,6 +64,7 @@ function addDescription(JsonTrack)
 	            		               + '</a>');
 	           // $("#audioDescription" ).html($(xml).find('description').text());
 	            $("#audioAuthor" ).html($(xml).find('author').text());
+	            console.log($(xml).find('licenses'));
 	            $("#audioLicense" ).html($(xml).find('licenses').text());
 	            
 	        },
