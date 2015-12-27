@@ -104,11 +104,11 @@ function getList($pagename)
   
   foreach ($list as $e) {
     var_dump($e);
-    if (isValidSoundExt($e->title))
+    if (isValidSoundExt($e['title']))
     {
-      $fileInfo = getFileIfo($e->title);
+      $fileInfo = getFileIfo($e['title']);
       $resultList[] =  
-        array("title"=>$e->title, 
+        array("title"=>$e['title'], 
               "url"=>$fileInfo['url'], 
               "duration"=>$fileInfo['duration']);
       
