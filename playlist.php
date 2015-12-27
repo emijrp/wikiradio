@@ -75,7 +75,7 @@ function getFilesFromPage($pageName)
 {
   $url = API_URL.'prop=links&titles='.$pageName.'&plnamespace=6&format=json';
   $file = getAPI($url);
- // var_dump($file);
+  var_dump($file);
   if (!is_null(reset($file['query']['pages'])['links'][0]))
   {
     return reset($file['query']['pages'])['links'][0];
