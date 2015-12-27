@@ -38,13 +38,15 @@ function playCurrent(diffsec,JsonTracks) {
 	var trackID = 0;
 	for (var i=0;i<JsonTracks.length;i++) {
 	    trackID = i;
+	    
 	    console.log(diffsec+'<='+JsonTracks[trackID].duration)
+	    
 	    if (diffsec <= JsonTracks[trackID].duration) {
 	        playTrackFrom(trackID,JsonTracks);
 	        break;
 	    }
 	    
-	    diffsec -= JsonTracks.duration;
+	    diffsec -= JsonTracks[trackID].duration;
 	}
 	
 	hourlySignal();
