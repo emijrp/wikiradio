@@ -70,7 +70,7 @@ function addDescription(JsonTrack)
 		         {
 		            return $(this).find("name").text();
 		         }
-		        }));
+		        ));
         
 	            //$("#audioLicense" ).html($(xml).find('full_name').text());
 	            
