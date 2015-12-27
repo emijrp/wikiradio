@@ -50,8 +50,8 @@
             <br><br>
              <span id="audioTitle"></span>
              <span id="audioDescription"></span>
-             <span id="audioAutor"></span>
-             <span id="audioLicence"></span>
+             <span id="audioAuthor"></span>
+             <span id="audioLicense"></span>
           
         </div>
     
