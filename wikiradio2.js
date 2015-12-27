@@ -1,39 +1,73 @@
-var totalLength = 0;
-for (var i=0;i<ArrayTracks.length;i++) {
-    totalLength += ArrayTracks[i][3];
-}
-var date = new Date();
-var dateutc = date.toUTCString();
-var data = document.getElementById('data');
-var epoch = Math.round(new Date() / 1000);
-var diffsec = epoch % totalLength;
-//data.innerHTML = 'UTC: ' + dateutc + '<br/>Epoch: ' + epoch + '<br/>Total length: ' + totalLength + '<br/>%: ' + diffsec;
-
+var defaultList = 'classic';
 var audioPlayer = document.getElementById('audioPlayer');
 var audioDescription = document.getElementById('audioDescription');
 var audioPlayerAux = document.getElementById('audioPlayerAux');
 var listening = document.getElementById('listening');
 
-var trackID = 0;
-for (var i=0;i<ArrayTracks.length;i++) {
-    trackID = i;
-    if (diffsec <= ArrayTracks[i][3]) {
-        playTrackFrom();
-        break;
-    }
+$.urlParam = function(name){
+    var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href);
+    if (results==null)
+       return null;
     
-    diffsec -= ArrayTracks[i][3];
-    
+    return results[1] || 0;
 }
 
-hourlySignal();
+var getList = ($.urlParam('getList') == null) ? (defaultList) : $.urlParam('getList');
 
-function playTrack(){
-    audioDescription.innerHTML = '<a href="https://commons.wikimedia.org/wiki/File:' + ArrayTracks[trackID][1].replace(/ /g,'_') + '">' + ArrayTracks[trackID][0] + '</a>';
+$.getJSON( "playlist.php", { getList: getList} )
+  .done(function( JsonTracks ) {
+    
+    var totalLength = getTotalDuration(JsonTracks);
+    var diffsec = getDiffsec(totalLength)
+    
+    playCurrent(diffsec,JsonTracks);
+    
+  })
+  .fail(function( jqxhr, textStatus, error ) {
+    var err = textStatus + ", " + error;
+    console.log( "Request Failed: " + err );
+});
+
+function getTotalDuration(JsonTracks)
+{
+    var totalLength = 0;
+    $.each(JsonTracks, function(i, item) {
+    	totalLength +=JsonTracks.duration;
+    });	
+    return totalLength;
+}
+
+function getDiffsec(totalLength)
+{
+	var date = new Date();
+	var dateutc = date.toUTCString();
+	var data = document.getElementById('data');
+	var epoch = Math.round(new Date() / 1000);
+	var diffsec = epoch % totalLength;
+	return diffsec;
+}
+
+function playCurrent(diffsec,JsonTracks) {
+	var trackID = 0;
+	for (var i=0;i<JsonTracks.length;i++) {
+	    trackID = i;
+	    if (diffsec <= JsonTracks.duration) {
+	        playTrackFrom(trackID,JsonTracks);
+	        break;
+	    }
+	    
+	    diffsec -= JsonTracks.duration;
+	}
+	
+	hourlySignal();
+}
+
+function playTrack(trackID,JsonTracks){
+    audioDescription.innerHTML = '<a href="https://commons.wikimedia.org/wiki/File:' + JsonTracks[trackID].title + '">' + JsonTracks[trackID].title + '</a>';
     //update height description
-    console.log(listening.offsetHeight);
     listening.style.height = getHeight(listening)+"px"; 
-    audioPlayer.src = 'https://upload.wikimedia.org/wikipedia/commons/' + ArrayTracks[trackID][2][0] + '/' + ArrayTracks[trackID][2] + '/' + ArrayTracks[trackID][1].replace(/ /g,'_');
+    
+    audioPlayer.src = JsonTracks[trackID].url;
     audioPlayer.play();
     audioPlayer.ondurationchange = function() {
         audioPlayer.pause();
@@ -41,12 +75,12 @@ function playTrack(){
         audioPlayer.play();
     }
     audioPlayer.onended = function(){
-        if (trackID < ArrayTracks.length - 1) {
+        if (trackID < JsonTracks.length - 1) {
             trackID++;
         } else {
             trackID = 0;
         }
-        playTrack();
+        playTrack(trackID,JsonTracks);
     }
 }
 
