@@ -52,14 +52,29 @@ function playCurrent(diffsec,JsonTracks) {
 	//hourlySignal();
 }
 
-function playTrack(trackID,JsonTracks){
-    console.log(JsonTracks[trackID]);
-    //audioDescription.innerHTML = '<a href="https://commons.wikimedia.org/wiki/' + JsonTracks[trackID].title + '">' + JsonTracks[trackID].title + '</a>';
-    //update height description
-   // listening.style.height = getHeight(listening)+"px"; 
-   
-   $("#audioDescription" ).append('<a href="https://commons.wikimedia.org/wiki/' + JsonTracks[trackID].title + '">' + JsonTracks[trackID].title + '</a>');
+function addDescription(JsonTrack)
+{
+	$.ajax({
+	        type: "GET",
+	        url: "https://tools.wmflabs.org/magnus-toolserver/commonsapi.php?image="+JsonTrack.title,
+	        dataType: "xml",
+	        success: function (xml) { 
+	            console.log($(xml).find('author').text());
+	            console.log($(xml).find('description').text());
+	            console.log($(xml).find('licenses').text());
+	            $("#audioDescription" ).html('<a href="https://commons.wikimedia.org/wiki/' + JsonTrack.title + '">' + 
+	            				    JsonTrack.title 
+	            		               + '</a>');
+	        },
+	        error: function (xml) {
+	            alert(xml.status + ' ' + xml.statusText);
+	        }
+        });
     
+}
+function playTrack(trackID,JsonTracks){
+   
+    addDescription(JsonTracks[trackID]);
     audioPlayer.src = JsonTracks[trackID].url;
     audioPlayer.play();
     audioPlayer.ondurationchange = function() {
