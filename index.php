@@ -13,7 +13,7 @@
     </div>
     <div id="content" class="mw-body" role="main">
         <div id="channels">
-            <p><b>Spoken Wikipedia:</b> 
+            <p><b>Languages:</b> 
             <a href="index.php?channel=ar">العربية</a> · 
             Català · 
             Deutsch · 
