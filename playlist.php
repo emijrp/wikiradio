@@ -106,11 +106,11 @@ function getList($pagename)
     {
       echo "test";
       $fileInfo = getFileIfo($e->title);
-      $resultList[] = { 
+      $resultList[] =  
         array("title"=>$e->title, 
               "url"=>$fileInfo['url'], 
               "duration"=>$fileInfo['duration']);
-      }
+      
     }
   }
   return json_encode($resultList);
