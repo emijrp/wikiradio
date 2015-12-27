@@ -74,6 +74,7 @@ function getFileIfo($filename)
 function getFilesFromPage($pageName)
 {
   $url = API_URL.'prop=links&titles='.$pageName.'&plnamespace=6';
+  echo $url;
   $file = getAPI($url);
   if (!is_null(reset($file['query']['pages'])['links'][0]))
   {
