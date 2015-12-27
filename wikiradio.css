@@ -21,7 +21,7 @@
     text-align: center;
 }
 #listening {
-    text-align: left !important;;   
+    text-align: left !important;  
     padding: 25px;
     width: auto;
     margin: 50px auto auto auto;
@@ -79,5 +79,5 @@ body {
     padding: 1.25em 1.5em 1.5em;
 }
 #audioTitle #audioAuthor #audioDescription #audioLicense {
-    padding-left: 1cm;
+    padding-left: 1cm !important;  
 }
