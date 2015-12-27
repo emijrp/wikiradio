@@ -27,6 +27,7 @@
     text-align: center;
     background-color: rgba(100,255,100,0.5);
     border-radius: 5px;
+    height:auto; overflow:auto
 }
 #author {
     width: 70%;
