@@ -12,11 +12,11 @@ function getAPI($url)
       'method'=>"GET",
       'header'=>"Accept-language: en\r\n" .
                 "Cookie: foo=bar\r\n" .  // check function.stream-context-create on php.net
-                "User-Agent: <wikiradio> by The_Photographer [[es:User:The_Photographer]]" // i.e. An iPad 
+                "User-Agent: <wikiradio> by The_Photographer [[es:User:The_Photographer]]" 
     )
   );
   $context = stream_context_create($options);
-  
+  var_dump($context);
   return json_decode(file_get_contents($url, false, $context),true);
 }
 
