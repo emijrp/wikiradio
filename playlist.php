@@ -92,6 +92,7 @@ function isValidSoundExt($filename)
 {
   //Last 3 chars
   $fileext = strtolower(substr($filename, -3));
+  var_dump($fileext);
   $validext =  array("wav", "ogg", "flac");
   return (in_array($fileext, $validext));
 }
@@ -104,7 +105,6 @@ function getList($pagename)
   foreach ($list as $e) {
     if (isValidSoundExt($e->title))
     {
-      echo "test";
       $fileInfo = getFileIfo($e->title);
       $resultList[] =  
         array("title"=>$e->title, 
