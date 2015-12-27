@@ -49,6 +49,7 @@ function playCurrent(diffsec,JsonTracks) {
 }
 
 function playTrack(trackID,JsonTracks){
+    console.log(JsonTracks[trackID]);
     audioDescription.innerHTML = '<a href="https://commons.wikimedia.org/wiki/' + JsonTracks[trackID].title + '">' + JsonTracks[trackID].title + '</a>';
     //update height description
     listening.style.height = getHeight(listening)+"px"; 
@@ -121,7 +122,10 @@ $.getJSON( "playlist.php", { getList: getList} )
   .done(function( JsonTracks ) {
     
     var totalLength = getTotalDuration(JsonTracks);
+    console.log('totalLenght='+localLenght);
+    
     var diffsec = getDiffsec(totalLength);
+    console.log('diffsec='+diffsec);
     
     playCurrent(diffsec,JsonTracks);
     
