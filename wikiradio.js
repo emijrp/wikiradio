@@ -117,8 +117,8 @@ function getHeight(oDiv) {
     return height;
 }
 
-//var getList = ($.urlParam('getList') == null) ? (defaultList) : $.urlParam('getList');
-var getList = 'test';
+var getList = ($.urlParam('getList') == null) ? (defaultList) : $.urlParam('getList');
+//var getList = 'test';
 
 volumeslider.addEventListener("change",setvolume,false);
 
