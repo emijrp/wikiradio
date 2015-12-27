@@ -64,25 +64,7 @@
         <p id="data"></p>
     </div>
     <div id="author"><a href="https://meta.wikimedia.org/wiki/Wikiradio_(tool)">Project page</a>. <small><a href="https://github.com/emijrp/wikiradio">Coded</a> by <a href="https://github.com/emijrp/wikiradio/graphs/contributors">contributors</a></small></div>
-
-<?php 
-/*
-    $spoken = ["ar", "en", "es", "gl", "pt", "ru"];
-    $music = ["classic", "india", "tango"];
-    $topics = ["anthems", "birds"];
-    $channels = array_merge($spoken, $music);
-    $channels = array_merge($channels, $topics);
-    $channel = "classic";
-    if (isset($_GET["channel"])){
-        $temp = $_GET["channel"];
-        if (in_array($temp, $channels))
-            $channel = $temp;
-    }
-    //Load the playlist
-    echo '<script src="playlist.php?name='.$channel.'" charset="UTF-8"></script>';
-    */
-?>
-    <script src="wikiradio2.js" charset="UTF-8"></script>
+    <script src="wikiradio.js" charset="UTF-8"></script>
     
  </body>
 
