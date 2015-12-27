@@ -3,6 +3,8 @@ var audioPlayer = document.getElementById('audioPlayer');
 var audioDescription = document.getElementById('audioDescription');
 var audioPlayerAux = document.getElementById('audioPlayerAux');
 var listening = document.getElementById('listening');
+//Volume control
+volumeslider = document.getElementById("volumeslider");
 
 $.urlParam = function(name){
     var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href);
@@ -11,22 +13,6 @@ $.urlParam = function(name){
     
     return results[1] || 0;
 }
-
-var getList = ($.urlParam('getList') == null) ? (defaultList) : $.urlParam('getList');
-
-$.getJSON( "playlist.php", { getList: getList} )
-  .done(function( JsonTracks ) {
-    
-    var totalLength = getTotalDuration(JsonTracks);
-    var diffsec = getDiffsec(totalLength)
-    
-    playCurrent(diffsec,JsonTracks);
-    
-  })
-  .fail(function( jqxhr, textStatus, error ) {
-    var err = textStatus + ", " + error;
-    console.log( "Request Failed: " + err );
-});
 
 function getTotalDuration(JsonTracks)
 {
@@ -63,7 +49,7 @@ function playCurrent(diffsec,JsonTracks) {
 }
 
 function playTrack(trackID,JsonTracks){
-    audioDescription.innerHTML = '<a href="https://commons.wikimedia.org/wiki/File:' + JsonTracks[trackID].title + '">' + JsonTracks[trackID].title + '</a>';
+    audioDescription.innerHTML = '<a href="https://commons.wikimedia.org/wiki/' + JsonTracks[trackID].title + '">' + JsonTracks[trackID].title + '</a>';
     //update height description
     listening.style.height = getHeight(listening)+"px"; 
     
@@ -110,12 +96,10 @@ function hourlySignal(){
         setTimeout(playHourlySignal,(60*(59-min)+(59-sec))*1000);
     }
 }
-//Volume control
-volumeslider = document.getElementById("volumeslider");
+
 function setvolume(){
 	audioPlayer.volume = volumeslider.value / 100;
 }
-volumeslider.addEventListener("change",setvolume,false);
 
 function getHeight(oDiv) {
     var sOriginalOverflow = oDiv.style.overflow;
@@ -127,3 +111,21 @@ function getHeight(oDiv) {
     oDiv.style.overflow = sOriginalOverflow;
     return height;
 }
+
+var getList = ($.urlParam('getList') == null) ? (defaultList) : $.urlParam('getList');
+
+volumeslider.addEventListener("change",setvolume,false);
+
+$.getJSON( "playlist.php", { getList: getList} )
+  .done(function( JsonTracks ) {
+    
+    var totalLength = getTotalDuration(JsonTracks);
+    var diffsec = getDiffsec(totalLength);
+    
+    playCurrent(diffsec,JsonTracks);
+    
+  })
+  .fail(function( jqxhr, textStatus, error ) {
+    var err = textStatus + ", " + error;
+    console.log( "Request Failed: " + err );
+});
