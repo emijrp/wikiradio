@@ -30,7 +30,8 @@ function getWikiPageContent($name)
   if (!is_null($file))
     return $file['query']['pages'][0]['revisions'][0]['content'];
   
-  return "Page is null";
+  echo "Page is null";
+  exit;
 }
 
 //Get Playlist page content
@@ -65,7 +66,8 @@ function getFileIfo($filename)
     return $arrayResult;
   }
   
-  return "URL is null";
+  echo "URL is null";
+  exit;
 }
 
 //Get files link from a page
@@ -77,7 +79,8 @@ function getFilesFromPage($pageName)
   {
     return reset($file['query']['pages'])['links'][0];
   }
-  return 'Files not found in page';
+  echo 'Files not found in page';
+  exit;
 }
 
 function getFileExt($filename)
@@ -98,8 +101,6 @@ function getList($pagename)
   $resultList = array();
   $list = getFilesFromPage($pageName);
   //It should be only a request for each 50 files list
-  var_dump($list);
-  /*
   foreach ($list as $e) {
     if (isValidSoundExt($e->title))
     {
@@ -110,7 +111,6 @@ function getList($pagename)
               "duration"=>$fileInfo['duration']);
     }
   }
-  */
   return json_decode($resultList);
 }
 
