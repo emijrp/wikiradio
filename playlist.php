@@ -16,8 +16,8 @@ function getAPI($url)
     )
   );
   $context = stream_context_create($options);
-  var_dump(file_get_contents($url, false, $context));
-  var_dump($url);
+  echo file_get_contents($url, false, $context);
+  //var_dump($url);
   return json_decode(file_get_contents($url, false, $context),true);
 }
 
