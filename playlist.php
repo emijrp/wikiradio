@@ -98,6 +98,8 @@ function getList($pagename)
   $resultList = array();
   $list = getFilesFromPage($pageName);
   //It should be only a request for each 50 files list
+  var_dump($list);
+  /*
   foreach ($list as $e) {
     if (isValidSoundExt($e->title))
     {
@@ -108,6 +110,7 @@ function getList($pagename)
               "duration"=>$fileInfo['duration']);
     }
   }
+  */
   return json_decode($resultList);
 }
 
