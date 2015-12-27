@@ -49,7 +49,7 @@ function playCurrent(diffsec,JsonTracks) {
 	    diffsec -= JsonTracks[trackID].duration;
 	}
 	
-	hourlySignal();
+	//hourlySignal();
 }
 
 function playTrack(trackID,JsonTracks){
