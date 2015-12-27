@@ -18,7 +18,7 @@ function getTotalDuration(JsonTracks)
 {
     var totalLength = 0;
     $.each(JsonTracks, function(i, item) {
-    	totalLength +=JsonTracks.duration;
+    	totalLength +=item.duration;
     });	
     return totalLength;
 }
