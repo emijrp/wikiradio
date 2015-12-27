@@ -75,8 +75,8 @@ function playTrack(trackID,JsonTracks){
     }
 }
 
-function playTrackFrom(){
-    playTrack();
+function playTrackFrom(trackID,JsonTracks){
+    playTrack(trackID,JsonTracks);
     audioPlayer.ondurationchange = function() {
         audioPlayer.pause();
         audioPlayer.currentTime = diffsec;
