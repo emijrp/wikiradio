@@ -54,9 +54,11 @@ function playCurrent(diffsec,JsonTracks) {
 
 function playTrack(trackID,JsonTracks){
     console.log(JsonTracks[trackID]);
-    audioDescription.innerHTML = '<a href="https://commons.wikimedia.org/wiki/' + JsonTracks[trackID].title + '">' + JsonTracks[trackID].title + '</a>';
+    //audioDescription.innerHTML = '<a href="https://commons.wikimedia.org/wiki/' + JsonTracks[trackID].title + '">' + JsonTracks[trackID].title + '</a>';
     //update height description
-    listening.style.height = getHeight(listening)+"px"; 
+   // listening.style.height = getHeight(listening)+"px"; 
+   
+   $("#audioDescription" ).append('<a href="https://commons.wikimedia.org/wiki/' + JsonTracks[trackID].title + '">' + JsonTracks[trackID].title + '</a>');
     
     audioPlayer.src = JsonTracks[trackID].url;
     audioPlayer.play();
