@@ -37,7 +37,7 @@ function playCurrent(diffsec,JsonTracks) {
 	var trackID = 0;
 	for (var i=0;i<JsonTracks.length;i++) {
 	    trackID = i;
-	    if (diffsec <= JsonTracks.duration) {
+	    if (diffsec <= JsonTracks[trackID].duration) {
 	        playTrackFrom(trackID,JsonTracks);
 	        break;
 	    }
