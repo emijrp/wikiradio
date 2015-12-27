@@ -120,11 +120,15 @@ volumeslider.addEventListener("change",setvolume,false);
 
 $.getJSON( "playlist.php", { getList: getList} )
   .done(function( JsonTracks ) {
+  	
     console.log(JsonTracks);
+    
     var totalLength = getTotalDuration(JsonTracks);
-    console.log('totalLenght='+totalLenght);
+    
+    console.log('totalLength='+totalLength);
     
     var diffsec = getDiffsec(totalLength);
+    
     console.log('diffsec='+diffsec);
     
     playCurrent(diffsec,JsonTracks);
