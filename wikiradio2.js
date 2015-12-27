@@ -42,7 +42,7 @@ function playCurrent(diffsec,JsonTracks) {
 	    console.log(diffsec+'<='+JsonTracks[trackID].duration)
 	    
 	    if (diffsec <= JsonTracks[trackID].duration) {
-	        playTrackFrom(trackID,JsonTracks);
+	        playTrackFrom(trackID,JsonTracks,diffsec);
 	        break;
 	    }
 	    
@@ -75,7 +75,7 @@ function playTrack(trackID,JsonTracks){
     }
 }
 
-function playTrackFrom(trackID,JsonTracks){
+function playTrackFrom(trackID,JsonTracks,diffsec){
     playTrack(trackID,JsonTracks);
     audioPlayer.ondurationchange = function() {
         audioPlayer.pause();
