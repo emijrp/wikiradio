@@ -22,12 +22,13 @@
 }
 #listening {
     padding: 25px;
-    width: 400px;
+    width: auto;
     margin: 50px auto auto auto;
     text-align: center;
     background-color: rgba(100,255,100,0.5);
     border-radius: 5px;
-    height:auto; overflow:auto
+    height:auto; 
+    overflow:auto
 }
 #author {
     width: 70%;
