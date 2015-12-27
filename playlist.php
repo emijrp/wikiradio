@@ -103,7 +103,6 @@ function getList($pagename)
   //It should be only a request for each 50 files list
   
   foreach ($list as $e) {
-    var_dump($e);
     if (isValidSoundExt($e['title']))
     {
       $fileInfo = getFileIfo($e['title']);
