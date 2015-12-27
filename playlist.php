@@ -86,7 +86,7 @@ function isValidSoundExt($filename)
 {
   //Last 3 chars
   $fileext = strtolower(substr($filename, -3));
-  $validext =  array("wav", "ogg", "flac");
+  $validext =  array("wav", "ogg", "flac","oga");
   return (in_array($fileext, $validext));
 }
 
