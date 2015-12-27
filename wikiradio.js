@@ -1,39 +1,64 @@
-var totalLength = 0;
-for (var i=0;i<ArrayTracks.length;i++) {
-    totalLength += ArrayTracks[i][3];
-}
-var date = new Date();
-var dateutc = date.toUTCString();
-var data = document.getElementById('data');
-var epoch = Math.round(new Date() / 1000);
-var diffsec = epoch % totalLength;
-//data.innerHTML = 'UTC: ' + dateutc + '<br/>Epoch: ' + epoch + '<br/>Total length: ' + totalLength + '<br/>%: ' + diffsec;
-
+var defaultList = 'classic';
 var audioPlayer = document.getElementById('audioPlayer');
 var audioDescription = document.getElementById('audioDescription');
 var audioPlayerAux = document.getElementById('audioPlayerAux');
 var listening = document.getElementById('listening');
+//Volume control
+volumeslider = document.getElementById("volumeslider");
 
-var trackID = 0;
-for (var i=0;i<ArrayTracks.length;i++) {
-    trackID = i;
-    if (diffsec <= ArrayTracks[i][3]) {
-        playTrackFrom();
-        break;
-    }
+$.urlParam = function(name){
+    var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href);
+    if (results==null)
+       return null;
     
-    diffsec -= ArrayTracks[i][3];
-    
+    return results[1] || 0;
 }
 
-hourlySignal();
+function getTotalDuration(JsonTracks)
+{
+    var totalLength = 0;
+    $.each(JsonTracks, function(i, item) {
+    	totalLength +=item.duration;
+    });	
+    return totalLength;
+}
 
-function playTrack(){
-    audioDescription.innerHTML = '<a href="https://commons.wikimedia.org/wiki/File:' + ArrayTracks[trackID][1].replace(/ /g,'_') + '">' + ArrayTracks[trackID][0] + '</a>';
+function getDiffsec(totalLength)
+{
+	var date = new Date();
+	var dateutc = date.toUTCString();
+	var data = document.getElementById('data');
+	var epoch = Math.round(new Date() / 1000);
+	var diffsec = epoch % totalLength;
+	return diffsec;
+}
+
+function playCurrent(diffsec,JsonTracks) {
+    
+	var trackID = 0;
+	for (var i=0;i<JsonTracks.length;i++) {
+	    trackID = i;
+	    
+	    console.log(diffsec+'<='+JsonTracks[trackID].duration)
+	    
+	    if (diffsec <= JsonTracks[trackID].duration) {
+	        playTrackFrom(trackID,JsonTracks,diffsec);
+	        break;
+	    }
+	    
+	    diffsec -= JsonTracks[trackID].duration;
+	}
+	
+	hourlySignal();
+}
+
+function playTrack(trackID,JsonTracks){
+    console.log(JsonTracks[trackID]);
+    audioDescription.innerHTML = '<a href="https://commons.wikimedia.org/wiki/' + JsonTracks[trackID].title + '">' + JsonTracks[trackID].title + '</a>';
     //update height description
-    console.log(listening.offsetHeight);
     listening.style.height = getHeight(listening)+"px"; 
-    audioPlayer.src = 'https://upload.wikimedia.org/wikipedia/commons/' + ArrayTracks[trackID][2][0] + '/' + ArrayTracks[trackID][2] + '/' + ArrayTracks[trackID][1].replace(/ /g,'_');
+    
+    audioPlayer.src = JsonTracks[trackID].url;
     audioPlayer.play();
     audioPlayer.ondurationchange = function() {
         audioPlayer.pause();
@@ -41,17 +66,17 @@ function playTrack(){
         audioPlayer.play();
     }
     audioPlayer.onended = function(){
-        if (trackID < ArrayTracks.length - 1) {
+        if (trackID < JsonTracks.length - 1) {
             trackID++;
         } else {
             trackID = 0;
         }
-        playTrack();
+        playTrack(trackID,JsonTracks);
     }
 }
 
-function playTrackFrom(){
-    playTrack();
+function playTrackFrom(trackID,JsonTracks,diffsec){
+    playTrack(trackID,JsonTracks);
     audioPlayer.ondurationchange = function() {
         audioPlayer.pause();
         audioPlayer.currentTime = diffsec;
@@ -76,12 +101,10 @@ function hourlySignal(){
         setTimeout(playHourlySignal,(60*(59-min)+(59-sec))*1000);
     }
 }
-//Volume control
-volumeslider = document.getElementById("volumeslider");
+
 function setvolume(){
 	audioPlayer.volume = volumeslider.value / 100;
 }
-volumeslider.addEventListener("change",setvolume,false);
 
 function getHeight(oDiv) {
     var sOriginalOverflow = oDiv.style.overflow;
@@ -93,3 +116,29 @@ function getHeight(oDiv) {
     oDiv.style.overflow = sOriginalOverflow;
     return height;
 }
+
+//var getList = ($.urlParam('getList') == null) ? (defaultList) : $.urlParam('getList');
+var getList = 'test';
+
+volumeslider.addEventListener("change",setvolume,false);
+
+$.getJSON( "playlist.php", { getList: getList} )
+  .done(function( JsonTracks ) {
+  	
+    console.log(JsonTracks);
+    
+    var totalLength = getTotalDuration(JsonTracks);
+    
+    console.log('totalLength='+totalLength);
+    
+    var diffsec = getDiffsec(totalLength);
+    
+    console.log('diffsec='+diffsec);
+    
+    playCurrent(diffsec,JsonTracks);
+    
+  })
+  .fail(function( jqxhr, textStatus, error ) {
+    var err = textStatus + ", " + error;
+    console.log( "Request Failed: " + err );
+});

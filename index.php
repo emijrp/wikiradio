@@ -3,6 +3,7 @@
     <title>wikiradio</title>
     <meta charset="UTF-8"> 
     <link rel="stylesheet" type="text/css" href="wikiradio.css" media="screen" />
+    <script src="jquery.js"></script>
 </head>
 <body>
 
@@ -64,7 +65,8 @@
     </div>
     <div id="author"><a href="https://meta.wikimedia.org/wiki/Wikiradio_(tool)">Project page</a>. <small><a href="https://github.com/emijrp/wikiradio">Coded</a> by <a href="https://github.com/emijrp/wikiradio/graphs/contributors">contributors</a></small></div>
 
-<?php    
+<?php 
+/*
     $spoken = ["ar", "en", "es", "gl", "pt", "ru"];
     $music = ["classic", "india", "tango"];
     $topics = ["anthems", "birds"];
@@ -78,8 +80,9 @@
     }
     //Load the playlist
     echo '<script src="playlist.php?name='.$channel.'" charset="UTF-8"></script>';
+    */
 ?>
-    <script src="wikiradio.js" charset="UTF-8"></script>
+    <script src="wikiradio2.js" charset="UTF-8"></script>
     
  </body>
 
