@@ -88,9 +88,10 @@ function getFileExt($filename)
 }
 //https://commons.wikimedia.org/wiki/Commons:File_types#Sound
 // .wav .ogg .flac
-function isValidSoundExt($fileext)
+function isValidSoundExt($filename)
 {
-  $fileext = strtolower($fileext);
+  //Last 3 chars
+  $fileext = strtolower(substr($filename, -3));
   $validext =  array("wav", "ogg", "flac");
   return (in_array($fileext, $validext));
 }
