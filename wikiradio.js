@@ -64,8 +64,15 @@ function addDescription(JsonTrack)
 	            		               + '</a>');
 	           // $("#audioDescription" ).html($(xml).find('description').text());
 	            $("#audioAuthor" ).html($(xml).find('author').text());
-	            console.log($(xml).find('licenses')[0]);
-	            $("#audioLicense" ).html($(xml).find('full_name').text());
+	           // console.log($(xml).find('licenses')[0]);
+	            
+	            $("#audioLicense" ).html($(xml).find("licenses").each(function ()
+		         {
+		            return $(this).find("name").text();
+		         }
+		        }));
+        
+	            //$("#audioLicense" ).html($(xml).find('full_name').text());
 	            
 	        },
 	        error: function (xml) {
