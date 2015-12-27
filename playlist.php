@@ -7,6 +7,7 @@ define("PLAYLIST_PREFIX", "Wikiradio_(tool)/playlist/");
 //Get api request
 function getAPI($url)
 {
+  $url = str_replace(' ','_',$url);
   $options = array(
     'http'=>array(
       'method'=>"GET",
@@ -16,8 +17,6 @@ function getAPI($url)
     )
   );
   $context = stream_context_create($options);
-  echo file_get_contents($url, false, $context);
-  var_dump($url);
   return json_decode(file_get_contents($url, false, $context),true);
 }
 
@@ -25,7 +24,6 @@ function getAPI($url)
 function getWikiPageContent($name)
 {
   //API query
-  $name = str_replace(' ','_',$name);
   $url = API_URL.'prop=revisions&titles='.$name.'&rvprop=content&formatversion=2&format=json';
   $file = getAPI($url);
   if (!is_null($file))
