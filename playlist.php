@@ -30,7 +30,7 @@ function getWikiPageContent($name)
   if (!is_null($file))
     return $file['query']['pages'][0]['revisions'][0]['content'];
   
-  echo "Page '$name' is null";
+  echo 'Page '.$name.' is null';
   exit;
 }
 
@@ -66,7 +66,7 @@ function getFileIfo($filename)
     return $arrayResult;
   }
   
-  echo "URL is null for $filename";
+  echo 'URL is null for '.$filename;
   exit;
 }
 
@@ -79,7 +79,7 @@ function getFilesFromPage($pageName)
   {
     return reset($file['query']['pages'])['links'][0];
   }
-  echo "Files not found in '$pageName'";
+  echo 'Files not found in '.$pageName;
   exit;
 }
 
