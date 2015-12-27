@@ -49,8 +49,14 @@
             <div style="float:left"><b>You are listening</b></div>
             <br><br>
              <span id="audioTitle"></span>
+             <br />
+             <div style="float:left"><b>Description</b></div>
              <span id="audioDescription"></span>
+             <br />
+             <div style="float:left"><b>Author</b></div>
              <span id="audioAuthor"></span>
+             <br />
+             <div style="float:left"><b>License</b></div>
              <span id="audioLicense"></span>
           
         </div>
