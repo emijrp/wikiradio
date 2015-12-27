@@ -78,3 +78,6 @@ body {
     padding: 1em;
     padding: 1.25em 1.5em 1.5em;
 }
+#audioTitle #audioAuthor #audioDescription #audioLicense {
+    padding-left: 1cm;
+}
