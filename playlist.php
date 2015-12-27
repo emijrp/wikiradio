@@ -99,7 +99,7 @@ function isValidSoundExt($filename)
 function getList($pagename)
 {
   $resultList = array();
-  $list = getFilesFromPage($pagename);
+  $list = getFilesFromPage(PLAYLIST_PREFIX.$pagename);
   //It should be only a request for each 50 files list
   
   foreach ($list as $e) {
