@@ -48,8 +48,10 @@
             </div>
             <div style="float:left"><b>You are listening</b></div>
             <br><br>
-            
+             <span id="audioTitle"></span>
              <span id="audioDescription"></span>
+             <span id="audioAutor"></span>
+             <span id="audioLicence"></span>
           
         </div>
     
