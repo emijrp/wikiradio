@@ -7,6 +7,7 @@ define("PLAYLIST_PREFIX", "Wikiradio_(tool)/playlist/");
 //Get api request
 function getAPI($url)
 {
+  echo $url;
   $options = array(
     'http'=>array(
       'method'=>"GET",
@@ -74,9 +75,8 @@ function getFileIfo($filename)
 function getFilesFromPage($pageName)
 {
   $url = API_URL.'prop=links&titles='.$pageName.'&plnamespace=6';
-  //echo $url;
   $file = getAPI($url);
-  var_dump($file);
+ // var_dump($file);
   if (!is_null(reset($file['query']['pages'])['links'][0]))
   {
     return reset($file['query']['pages'])['links'][0];
