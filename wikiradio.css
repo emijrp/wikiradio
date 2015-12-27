@@ -21,7 +21,7 @@
     text-align: center;
 }
 #listening {
-    text-align: left;   
+    text-align: left !important;;   
     padding: 25px;
     width: auto;
     margin: 50px auto auto auto;
