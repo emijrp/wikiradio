@@ -110,7 +110,7 @@ function getList($pagename)
               "duration"=>$fileInfo['duration']);
     }
   }
-  return json_decode($resultList);
+  return json_encode($resultList);
 }
 
 if (isset($_GET['name']))
