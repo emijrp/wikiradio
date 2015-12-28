@@ -50,12 +50,12 @@
              <br />
              <span id="audioTitle"></span>
              <br />
-             <!--
+             
              <div style="float:left"><b>Description</b></div>
              <br />
              <span id="audioDescription"></span>
              <br />
-             -->
+             
              <div style="float:left"><b>Author</b></div>
              <br />
              <span id="audioAuthor"></span>
