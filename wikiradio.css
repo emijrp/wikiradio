@@ -86,6 +86,7 @@ body {
 .container .content {
     display: none;
     padding : 5px;
+    background-color: #f9f9f9;
 }
 .header {
     padding: 10px 15px;
