@@ -39,8 +39,6 @@ function playCurrent(diffsec,JsonTracks) {
 	for (var i=0;i<JsonTracks.length;i++) {
 	    trackID = i;
 	    
-	    console.log(diffsec+'<='+JsonTracks[trackID].duration)
-	    
 	    if (diffsec <= JsonTracks[trackID].duration) {
 	        playTrackFrom(trackID,JsonTracks,diffsec);
 	        break;
@@ -60,8 +58,8 @@ function addDescription(JsonTrack)
 	        dataType: "xml",
 	        success: function (xml) { 
 	            $("#audioTitle" ).html('<a href="https://commons.wikimedia.org/wiki/' + JsonTrack.title + '">' + 
-	            				    JsonTrack.title 
-	            		               + '</a>');
+	            		             JsonTrack.title 
+	            	                 + '</a>');
 	           // $("#audioDescription" ).html($(xml).find('description').text());
 	            $("#audioAuthor" ).html($(xml).find('author').text());
 	           // console.log($(xml).find('licenses')[0]);
