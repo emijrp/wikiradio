@@ -64,11 +64,10 @@
         <audio id="audioPlayerAux">
         Your browser does not support the HTML5 Audio element.
         </audio>
-    
         <p id="data"></p>
     </div>
     <div id="author"><a href="https://meta.wikimedia.org/wiki/Wikiradio_(tool)">Project page</a>. <a href="https://github.com/emijrp/wikiradio">Coded</a> by <a href="https://github.com/emijrp/wikiradio/graphs/contributors">contributors</a>. Edit <a href="https://meta.wikimedia.org/wiki/Wikiradio_(tool)#Playlist">channel page</a> to hear your music.</div>
-    <script src="wikiradio.js" charset="UTF-8" />
+    <script src="wikiradio.js" charset="UTF-8"></script>
  </body>
 
 </html>
