@@ -139,7 +139,6 @@ var getList = ($.urlParam('channel') == null) ? (defaultList) : $.urlParam('chan
 //var getList = 'test';
 
 volumeslider.addEventListener("change",setvolume,false);
-$("#audioTitle" ).html('Loading');
 
 $.getJSON( "playlist.php", { getList: getList} )
   .done(function( JsonTracks ) {
@@ -149,6 +148,7 @@ $.getJSON( "playlist.php", { getList: getList} )
     var diffsec = getDiffsec(totalLength);
     
     playCurrent(diffsec,JsonTracks);
+    $("#youare" ).html('You are listening');
     
   })
   .fail(function( jqxhr, textStatus, error ) {
