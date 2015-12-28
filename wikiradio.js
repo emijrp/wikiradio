@@ -139,6 +139,7 @@ var getList = ($.urlParam('channel') == null) ? (defaultList) : $.urlParam('chan
 //var getList = 'test';
 
 volumeslider.addEventListener("change",setvolume,false);
+$("#audioTitle" ).html('Loading');
 
 $.getJSON( "playlist.php", { getList: getList} )
   .done(function( JsonTracks ) {
