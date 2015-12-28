@@ -90,9 +90,10 @@ body {
 }
 .header {
     padding: 10px 15px;
-    background-color: rgba(51, 204, 51);
+    background-color: rgb(0, 153, 51);
     color: #FFF;
     opacity: 0.5;
     user-select:none;
     cursor: pointer;
+    border-radius: 5px;
 }
