@@ -46,10 +46,11 @@
         <div id="listening">
             <div style="float:right">
                 <img src="https://upload.wikimedia.org/wikipedia/commons/3/39/High-contrast-audio-volume-high.svg" width="15" />
-                <input id="volumeslider" type="range" min="0" max="100" value="100" step="1">
+                <input id="volumeslider" type="range" min="0" max="100" value="100" step="1"><br />
+                <a href="https://meta.wikimedia.org/w/index.php?title=Wikiradio_(tool)/playlist/<?php echo isset($_GET['channel'])?($_GET['channel']):(('classic')); ?>&action=edit">[Edit dayparting]</a>
             </div>
              <h3>You are listening <img src="green-LED.gif" width="10"></h3>
-             <span id="audioTitle"></span><a href="https://meta.wikimedia.org/w/index.php?title=Wikiradio_(tool)/playlist/<?php echo isset($_GET['channel'])?($_GET['channel']):(('classic')); ?>&action=edit">[Edit dayparting]</a>
+             <span id="audioTitle"></span>
              <br />
              <br />
              <div class="container">
