@@ -83,7 +83,7 @@
             </div>
         </div>
     
-        <audio id="audioPlayer" controls>
+        <audio id="audioPlayer">
         Your browser does not support the HTML5 Audio element.
         </audio>
     
