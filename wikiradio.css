@@ -55,7 +55,6 @@ input#volumeslider::-webkit-slider-thumb {
 
 #audioDescription {
     float:left;
-    font-size:small
 }
 body {
     background-color: #f6f6f6;
