@@ -46,22 +46,13 @@
                 <img src="https://upload.wikimedia.org/wikipedia/commons/3/39/High-contrast-audio-volume-high.svg" width="15" />
                 <input id="volumeslider" type="range" min="0" max="100" value="100" step="1">
             </div>
-             <div style="float:left"><b>You are listening</b></div>
-             <br />
+             <h3>You are listening</h3>
              <span id="audioTitle"></span>
-             <br />
-             
-             <div style="float:left"><b>Description</b></div>
-             <br />
+             <h3>Description</h3>
              <span id="audioDescription"></span>
-             <br />
-             
-             <div style="float:left"><b>Author</b></div>
-             <br />
+             <h3>Author</h3>
              <span id="audioAuthor"></span>
-             <br />
-             <div style="float:left"><b>License</b></div>
-             <br />
+             <h3>License</h3>
              <span id="audioLicense"></span>
           
         </div>
