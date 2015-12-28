@@ -49,16 +49,30 @@
              <h3>You are listening</h3>
              <span id="audioTitle"></span>
              <div class="container">
-                <div class="header"><span>Expand</span>
+                <div class="header"><span>More details</span>
             
                 </div>
                 <div class="content">
-                     <h3>Description</h3>
-                     <span id="audioDescription"></span>
-                     <h3>Author</h3>
-                     <span id="audioAuthor"></span>
-                     <h3>License</h3>
-                     <span id="audioLicense"></span>
+
+                    <div class="hproduct commons-file-information-table">
+                    <table cellpadding="4" style="width: 100%; direction: ltr;" class="fileinfotpl-type-information toccolours vevent mw-content-ltr">
+                    <tbody><tr style="vertical-align: top">
+                    <td lang="en" class="fileinfo-paramfield" id="fileinfotpl_desc">Description</td>
+                    <td class="description">
+                    <span id="audioDescription"></span>
+                    </td>
+                    </tr>
+                    <tr style="vertical-align: top">
+                    <td lang="en" class="fileinfo-paramfield" id="fileinfotpl_aut">Author</td>
+                    <td>
+                        <span id="audioAuthor"></span>
+                    </td>
+                    </tr>
+                    </tbody></table>
+                    </div>
+                    <h3>License</h3>
+                    <span id="audioLicense"></span>
+                     
                 </div>
             </div>
         </div>
