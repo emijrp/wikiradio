@@ -48,10 +48,9 @@
             </div>
              <h3>You are listening</h3>
              <span id="audioTitle"></span>
+             <br />
              <div class="container">
-                <div class="header"><span>More details</span>
-            
-                </div>
+                <div class="header">More details >></div>
                 <div class="content">
 
                     <div class="hproduct commons-file-information-table">
