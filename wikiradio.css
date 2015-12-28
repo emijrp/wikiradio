@@ -83,3 +83,7 @@ body {
     padding-left: 1cm !important;  
     width: 98%;
 }
+.container .content {
+    display: none;
+    padding : 5px;
+}
