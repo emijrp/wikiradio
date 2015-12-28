@@ -67,9 +67,8 @@
     
         <p id="data"></p>
     </div>
-    <div id="author"><a href="https://meta.wikimedia.org/wiki/Wikiradio_(tool)">Project page</a>. <small><a href="https://github.com/emijrp/wikiradio">Coded</a> by <a href="https://github.com/emijrp/wikiradio/graphs/contributors">contributors</a></small></div>
-    . Edit <a href="https://meta.wikimedia.org/wiki/Wikiradio_(tool)#Playlist">channel page</a> to hear your music.
-    
+    <div id="author"><a href="https://meta.wikimedia.org/wiki/Wikiradio_(tool)">Project page</a>. <a href="https://github.com/emijrp/wikiradio">Coded</a> by <a href="https://github.com/emijrp/wikiradio/graphs/contributors">contributors</a>. Edit <a href="https://meta.wikimedia.org/wiki/Wikiradio_(tool)#Playlist">channel page</a> to hear your music.</div>
+    <script src="wikiradio.js" charset="UTF-8" />
  </body>
 
 </html>
