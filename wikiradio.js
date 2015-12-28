@@ -60,7 +60,7 @@ function addDescription(JsonTrack)
 	            $("#audioTitle" ).html('<a href="https://commons.wikimedia.org/wiki/' + JsonTrack.title + '">' + 
 	            		             JsonTrack.title 
 	            	                 + '</a>');
-		    $("#audioDescription" ).html($(xml).find('description').eq(1)[0].text());
+		    $("#audioDescription" ).html($(xml).find('description').eq(1)[0]);
 	            $("#audioAuthor" ).html($(xml).find('author').text());
 	            $("#audioLicense" ).html($(xml).find("licenses").find('name').text());
                     
