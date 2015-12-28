@@ -42,7 +42,7 @@
 input#volumeslider {
     -webkit-appearance: none;
     background-color: silver;
-    width: 60px;
+    width: 80px;
     height:14px;
     cursor:pointer;
 }
