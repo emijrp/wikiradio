@@ -33,8 +33,8 @@
 }
 #author {
     width: 70%;
-    margin: 80px auto auto auto;
-    text-align: center;
+    margin: 10px auto auto auto;
+    text-align: left;
 }
 
 input#volumeslider {
