@@ -69,11 +69,14 @@
                         <span id="audioAuthor"></span>
                     </td>
                     </tr>
+                    <tr style="vertical-align: top">
+                    <td lang="en" class="fileinfo-paramfield" id="fileinfotpl_aut">License</td>
+                    <td>
+                        <span id="audioLicense"></span>
+                    </td>
+                    </tr>
                     </tbody></table>
-                    </div>
-                    <h3>License</h3>
-                    <span id="audioLicense"></span>
-                     
+                    </div>  
                 </div>
             </div>
         </div>
