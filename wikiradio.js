@@ -58,7 +58,7 @@ function addDescription(JsonTrack)
 	        dataType: "xml",
 	        success: function (xml) { 
 	            $("#audioTitle" ).html('<a href="https://commons.wikimedia.org/wiki/' + JsonTrack.title + '">' + 
-	            		             JsonTrack.title 
+	            		             JsonTrack.title.replace(/\.[^/.]+$/, "").replace("File:","")
 	            	                 + '</a>');
 		    $("#audioDescription" ).html($($(xml).find('description').eq(1)[0]).text());
 	            $("#audioAuthor" ).html($(xml).find('author').text());
