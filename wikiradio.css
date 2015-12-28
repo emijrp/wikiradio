@@ -90,22 +90,9 @@ body {
 }
 .header {
     padding: 10px 15px;
-    background: #4479BA;
+    background-color: rgb(100,255,100);
     color: #FFF;
     opacity: 0.5;
     user-select:none;
-    cursor: pointer;
-}
-.header:hover {
-    background: #356094;
-    opacity: 0.5;
-    border: solid 1px #2A4E77;
-    text-decoration: none;
-    cursor: pointer;
-}
-.header:active {
-    background: #2E5481;
-    opacity: 0.2;
-    border: solid 1px #203E5F;
     cursor: pointer;
 }
