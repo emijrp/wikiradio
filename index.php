@@ -31,6 +31,7 @@
             <a href="index.php?channel=classic">Classic</a> · 
             <a href="index.php?channel=india">India</a> · 
             <a href="index.php?channel=tango">Tango</a> · 
+            <a href="index.php?channel=USA">USA</a> · 
             
             </p>
             
