@@ -80,5 +80,5 @@ body {
 }
 #audioTitle, #audioAuthor, #audioDescription, #audioLicense {
     padding-left: 1cm !important;  
-    width: 100%;
+    width: 90%;
 }
