@@ -66,7 +66,7 @@ function addDescription(JsonTrack)
 	            
 	            $("#audioLicense" ).html($(xml).find("licenses").each(function ()
 		         {
-		            return $(this).find("name").text();
+		            return $(this).find("name").text().replace(/(?:https?|ftp):\/\/[\n\S]+/g, '');
 		         }
 		        ));
         
