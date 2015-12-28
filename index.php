@@ -50,6 +50,7 @@
              <h3>You are listening</h3>
              <span id="audioTitle"></span>
              <br />
+             <br />
              <div class="container">
                 <div class="header">More details >></div>
                 <div class="content">
