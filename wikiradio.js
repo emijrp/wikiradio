@@ -64,12 +64,8 @@ function addDescription(JsonTrack)
 	            $("#audioAuthor" ).html($(xml).find('author').text());
 	           // console.log($(xml).find('licenses')[0]);
 	            
-	            $("#audioLicense" ).html($(xml).find("licenses").each(function ()
-		         {
-		            return $(this).find("name").text().replace(/(?:https?|ftp):\/\/[\n\S]+/g, '');
-		         }
-		        ));
-        
+	            $("#audioLicense" ).html($(xml).find("licenses").find('name').text());
+                    console.log($(xml).find('description').eq(1)[0]);
 	            //$("#audioLicense" ).html($(xml).find('full_name').text());
 	            
 	        },
