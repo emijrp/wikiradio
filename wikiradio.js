@@ -60,13 +60,11 @@ function addDescription(JsonTrack)
 	            $("#audioTitle" ).html('<a href="https://commons.wikimedia.org/wiki/' + JsonTrack.title + '">' + 
 	            		             JsonTrack.title 
 	            	                 + '</a>');
-	           // $("#audioDescription" ).html($(xml).find('description').text());
+		    $("#audioDescription" ).html($(xml).find('description').eq(1)[0].text());
 	            $("#audioAuthor" ).html($(xml).find('author').text());
-	           // console.log($(xml).find('licenses')[0]);
-	            
 	            $("#audioLicense" ).html($(xml).find("licenses").find('name').text());
-                    console.log($(xml).find('description').eq(1)[0]);
-	            //$("#audioLicense" ).html($(xml).find('full_name').text());
+                    
+	            
 	            
 	        },
 	        error: function (xml) {
