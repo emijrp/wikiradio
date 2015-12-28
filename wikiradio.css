@@ -92,7 +92,6 @@ body {
     background: #4479BA;
     color: #FFF;
     opacity: 0.5;
-    border: solid 1px #20538D;
     user-select:none;
 }
 .header:hover {
