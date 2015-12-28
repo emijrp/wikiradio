@@ -32,8 +32,8 @@
     overflow:auto
 }
 #author {
-    width: 70%;
-    margin: 0px auto auto auto;
+    width:100%;
+    margin: 10px auto auto auto;
     text-align: left;
 }
 
