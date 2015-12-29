@@ -4,7 +4,6 @@
     <meta charset="UTF-8"> 
     <link rel="stylesheet" type="text/css" href="wikiradio.css" media="screen" />
     <link rel="stylesheet" type="text/css" href="vector.css" media="screen" />
-    <link rel="stylesheet" type="text/css" href="commons.css" media="screen" />
     <script src="jquery.js"></script>
 </head>
 <body>
