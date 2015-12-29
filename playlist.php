@@ -113,4 +113,6 @@ function getList($pagename)
 
 if (isset($_GET['getList']))
   echo getList($_GET['getList']);
+if (isset($_GET['getWikiPageContent']))
+  echo getWikiPageContent($_GET['getWikiPageContent']);
 ?>
