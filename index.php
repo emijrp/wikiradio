@@ -35,29 +35,6 @@
              <div class="container">
                 <div class="header">More details >></div>
                 <div class="content">
-
-                    <div class="hproduct commons-file-information-table">
-                    <table cellpadding="4" style="width: 100%; direction: ltr;" class="fileinfotpl-type-information toccolours vevent mw-content-ltr">
-                    <tbody><tr style="vertical-align: top">
-                    <td lang="en" class="fileinfo-paramfield" id="fileinfotpl_desc">Description</td>
-                    <td class="description">
-                    <span id="audioDescription"></span>
-                    </td>
-                    </tr>
-                    <tr style="vertical-align: top">
-                    <td lang="en" class="fileinfo-paramfield" id="fileinfotpl_aut">Author</td>
-                    <td>
-                        <span id="audioAuthor"></span>
-                    </td>
-                    </tr>
-                    <tr style="vertical-align: top">
-                    <td lang="en" class="fileinfo-paramfield" id="fileinfotpl_aut">License</td>
-                    <td>
-                        <span id="audioLicense"></span>
-                    </td>
-                    </tr>
-                    </tbody></table>
-                    </div>  
                 </div>
             </div>
         </div>
