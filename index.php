@@ -14,7 +14,11 @@
     </div>
     <div id="content" class="mw-body" role="main">
         <div style="float:right">
-            <a href="https://meta.wikimedia.org/w/index.php?title=Template:Wikiradio_(tool)/stations&action=edit">[Edit stations]</a>
+            <span class="mw-editsection">
+            <span class="mw-editsection-bracket">[</span>
+            <a title="Edit section: Summary" href="https://meta.wikimedia.org/w/index.php?title=Template:Wikiradio_(tool)/stations&action=edit">edit stations</a>
+            <span class="mw-editsection-bracket">]</span>
+            </span>
         </div>
         <div id="channels">
            
@@ -22,7 +26,13 @@
         
         <div id="listening">
             <div style="float:right">
-                <a href="https://meta.wikimedia.org/w/index.php?title=Wikiradio_(tool)/playlist/<?php echo isset($_GET['channel'])?($_GET['channel']):(('classic')); ?>&action=edit">[Edit dayparting]</a><br /><br />
+                <span class="mw-editsection">
+                <span class="mw-editsection-bracket">[</span>
+                <a title="Edit section: Summary" href="https://meta.wikimedia.org/w/index.php?title=Wikiradio_(tool)/playlist/<?php echo isset($_GET['channel'])?($_GET['channel']):(('classic')); ?>&action=edit">edit dayparting</a>
+                <span class="mw-editsection-bracket">]</span>
+                </span>
+
+                <br /><br />
                 <img src="https://upload.wikimedia.org/wikipedia/commons/3/39/High-contrast-audio-volume-high.svg" width="15" />
                 <input id="volumeslider" type="range" min="0" max="100" value="100" step="1">
                
