@@ -156,6 +156,11 @@ $.getJSON( "playlist.php", { getList: getList} )
     console.log( "Request Failed: " + err );
 });
 
+//Loading stations
+$.get('playlist.php?getHtmlPageContent=Wikiradio_(tool)/stations', function(data) {
+           $("#channels" ).html(data);
+        });
+        
 $(".header").click(function () {
 
     $header = $(this);
