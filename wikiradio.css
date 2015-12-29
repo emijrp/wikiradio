@@ -100,3 +100,21 @@ body {
 h2 {
 font-size:16px;    
 }
+.client-js .mw-content-ltr .mw-editsection-bracket:first-of-type, .client-js .mw-content-rtl .mw-editsection-bracket:not(:first-of-type) {
+    color: #555;
+    margin-right: 0.25em;
+}
+.mw-body .mw-editsection, .mw-body .mw-editsection-like {
+    font-family: sans-serif;
+}
+.mw-editsection {
+    white-space: nowrap;
+}
+.mw-editsection, .mw-editsection-like {
+    font-size: small;
+    font-weight: normal;
+    line-height: 1em;
+}
+.mw-content-ltr {
+    direction: ltr;
+}
