@@ -2,6 +2,7 @@
 header('Content-Type: text/html; charset=utf-8');
 //Constants
 define("API_URL", "https://meta.wikimedia.org/w/api.php?action=query&");
+define("API_COMMONS_URL", "https://commons.wikimedia.org/w/api.php?action=query&");
 define("PLAYLIST_PREFIX", "Wikiradio_(tool)/playlist/");
 
 //Get api request
@@ -39,6 +40,33 @@ function getHtmlPageContent($name)
 {
   //API query
   $url = API_URL.'prop=revisions&titles='.$name.'&rvprop=content&rvparse=1&redirects=true&format=json';
+  
+  $file = getAPI($url);
+  if (!is_null($file))
+    return reset(reset($file['query']['pages'])['revisions'][0]);
+  
+  echo 'Page '.$name.' is null';
+  exit;
+}
+
+//Get html page content
+function getHtmlPageContent($name)
+{
+  //API query
+  $url = API_URL.'prop=revisions&titles='.$name.'&rvprop=content&rvparse=1&redirects=true&format=json';
+  
+  $file = getAPI($url);
+  if (!is_null($file))
+    return reset(reset($file['query']['pages'])['revisions'][0]);
+  
+  echo 'Page '.$name.' is null';
+  exit;
+}
+//Get html page content
+function getHtmlPageCommons($name)
+{
+  //API query
+  $url = API_COMMONS_URL.'prop=revisions&titles='.$name.'&rvprop=content&rvparse=1&redirects=true&format=json';
   
   $file = getAPI($url);
   if (!is_null($file))
