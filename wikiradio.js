@@ -54,10 +54,11 @@ function playCurrent(diffsec,JsonTracks) {
 function addDescription(JsonTrack)
 {
 
-     $("#audioTitle" ).html('<a href="https://commons.wikimedia.org/wiki/' + JsonTrack.title + '" target="_blank">' + 
+     $("#audioTitle" ).html('<a href="'+ commonsdomain +'/wiki/' + JsonTrack.title + '" target="_blank">' + 
 	            	  JsonTrack.title.replace(/\.[^/.]+$/, "").replace("File:","")
 	            	 + '</a>');
-    //Loading stations
+	            	 
+      //Loading track description from commons
       $.get('playlist.php?getCommonsHtmlPage='+JsonTrack.title, function(data) {
       	   //Fixing commons links
       	   data = data.replace('"/wiki/','"'+commonsdomain+'/wiki/');
@@ -114,17 +115,6 @@ function hourlySignal(){
 
 function setvolume(){
 	audioPlayer.volume = volumeslider.value / 100;
-}
-
-function getHeight(oDiv) {
-    var sOriginalOverflow = oDiv.style.overflow;
-    var sOriginalHeight = oDiv.style.height;
-    oDiv.style.overflow = "";
-    oDiv.style.height = "";
-    var height = oDiv.offsetHeight;
-    oDiv.style.height = sOriginalHeight;
-    oDiv.style.overflow = sOriginalOverflow;
-    return height;
 }
 
 var getList = ($.urlParam('channel') == null) ? (defaultList) : $.urlParam('channel');
