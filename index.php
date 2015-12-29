@@ -13,15 +13,19 @@
         <img src="https://upload.wikimedia.org/wikipedia/commons/5/53/Wikiradio-logo.svg" width="180">
     </div>
     <div id="content" class="mw-body" role="main">
+        <div style="float:right">
+            <a href="https://meta.wikimedia.org/w/index.php?title=Wikiradio_(tool)/stations&action=edit">[Edit statios]</a>
+        </div>
         <div id="channels">
            
         </div>
         
         <div id="listening">
             <div style="float:right">
+                <a href="https://meta.wikimedia.org/w/index.php?title=Wikiradio_(tool)/playlist/<?php echo isset($_GET['channel'])?($_GET['channel']):(('classic')); ?>&action=edit">[Edit dayparting]</a><br /><br />
                 <img src="https://upload.wikimedia.org/wikipedia/commons/3/39/High-contrast-audio-volume-high.svg" width="15" />
-                <input id="volumeslider" type="range" min="0" max="100" value="100" step="1"><br />
-                <a href="https://meta.wikimedia.org/w/index.php?title=Wikiradio_(tool)/playlist/<?php echo isset($_GET['channel'])?($_GET['channel']):(('classic')); ?>&action=edit">[Edit dayparting]</a>
+                <input id="volumeslider" type="range" min="0" max="100" value="100" step="1">
+               
             </div>
              <h3 id="youare">Loading <img src="green-LED.gif" width="10"></h3>
              <span id="audioTitle"></span>
