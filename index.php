@@ -24,6 +24,7 @@
             <a href="index.php?channel=gl">Galego</a> · 
             <a href="index.php?channel=pt">Português</a> · 
             <a href="index.php?channel=ru">Русский</a> · 
+            <a href="index.php?channel=pl">Polskich</a>
             
             </p>
             
@@ -31,14 +32,14 @@
             <a href="index.php?channel=classic">Classic</a> · 
             <a href="index.php?channel=india">India</a> · 
             <a href="index.php?channel=tango">Tango</a> · 
-            <a href="index.php?channel=USA">USA</a> · 
+            <a href="index.php?channel=USA">USA</a>
             
             </p>
             
             <p><b>Topics:</b> 
             <a href="index.php?channel=anthems">Anthems</a> · 
             <a href="index.php?channel=birds">Birds</a> · 
-            Nature · 
+            Nature
             
             </p>
         </div>
