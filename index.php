@@ -14,7 +14,7 @@
     </div>
     <div id="content" class="mw-body" role="main">
         <div style="float:right">
-            <a href="https://meta.wikimedia.org/w/index.php?title=Wikiradio_(tool)/stations&action=edit">[Edit statios]</a>
+            <a href="https://meta.wikimedia.org/w/index.php?title=Wikiradio_(tool)/stations&action=edit">[Edit stations]</a>
         </div>
         <div id="channels">
            
