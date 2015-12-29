@@ -7,6 +7,7 @@ var commonsdomain = "https://commons.wikimedia.org";
 //Volume control
 volumeslider = document.getElementById("volumeslider");
 
+//Get param from url
 $.urlParam = function(name){
     var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href);
     if (results==null)
@@ -15,6 +16,7 @@ $.urlParam = function(name){
     return results[1] || 0;
 }
 
+//Get duration of all tracks to play
 function getTotalDuration(JsonTracks)
 {
     var totalLength = 0;
@@ -24,6 +26,7 @@ function getTotalDuration(JsonTracks)
     return totalLength;
 }
 
+//Get difference time of local UTC time
 function getDiffsec(totalLength)
 {
 	var date = new Date();
@@ -36,9 +39,7 @@ function getDiffsec(totalLength)
 
 function playCurrent(diffsec,JsonTracks) {
     
-	var trackID = 0;
-	for (var i=0;i<JsonTracks.length;i++) {
-	    trackID = i;
+	for (var trackID=0;trackID<JsonTracks.length;trackID++) {
 	    
 	    if (diffsec <= JsonTracks[trackID].duration) {
 	        playTrackFrom(trackID,JsonTracks,diffsec);
@@ -50,13 +51,19 @@ function playCurrent(diffsec,JsonTracks) {
 	
 	//hourlySignal();
 }
+//Create file link
+function createLink (title)
+{
+   return '<a href="'+ commonsdomain +'/wiki/' + title + '" target="_blank">' + 
+	            	  title.replace(/\.[^/.]+$/, "").replace("File:","")
+	+ '</a>';
+
+}
 
 function addDescription(JsonTrack)
 {
 
-     $("#audioTitle" ).html('<a href="'+ commonsdomain +'/wiki/' + JsonTrack.title + '" target="_blank">' + 
-	            	  JsonTrack.title.replace(/\.[^/.]+$/, "").replace("File:","")
-	            	 + '</a>');
+     $("#audioTitle" ).html(createLink (JsonTrack.title));
 	            	 
       //Loading track description from commons
       $.get('playlist.php?getCommonsHtmlPage='+JsonTrack.title, function(data) {
@@ -130,6 +137,7 @@ $.getJSON( "playlist.php", { getList: getList} )
     var diffsec = getDiffsec(totalLength);
     
     playCurrent(diffsec,JsonTracks);
+    
     $("#youare" ).html('You are listening');
     
   })
@@ -141,7 +149,8 @@ $.getJSON( "playlist.php", { getList: getList} )
 //Loading stations
 $.get('playlist.php?getHtmlPageContent=Template:Wikiradio_(tool)/stations', function(data) {
            $("#channels" ).html(data);
-        });
+        }
+      );
         
 $(".header").click(function () {
 
