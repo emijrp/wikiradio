@@ -3,6 +3,7 @@ var audioPlayer = document.getElementById('audioPlayer');
 var audioDescription = document.getElementById('audioDescription');
 var audioPlayerAux = document.getElementById('audioPlayerAux');
 var listening = document.getElementById('listening');
+var commonsdomain = "https://commons.wikimedia.org";
 //Volume control
 volumeslider = document.getElementById("volumeslider");
 
@@ -52,11 +53,16 @@ function playCurrent(diffsec,JsonTracks) {
 
 function addDescription(JsonTrack)
 {
+     $("#audioTitle" ).html('<a href="https://commons.wikimedia.org/wiki/' + JsonTrack.title + '" target="_blank">' + 
+-	            	  sonTrack.title.replace(/\.[^/.]+$/, "").replace("File:","")
+-	            	 + '</a>');
     //Loading stations
       $.get('playlist.php?getCommonsHtmlPage='+JsonTrack.title, function(data) {
-      	
-           $(".content").html(data.replace("/wiki","https://commons.wikimedia.org/wiki/"));
-    });
+      	   //Fixing commons links
+      	   data = data.replace("/wiki",commonsdomain+"/wiki/");
+      	   data = data.replace("/w",commonsdomain+"/w/");
+           $(".content").html(data);
+      });
 }
 function playTrack(trackID,JsonTracks){
    
