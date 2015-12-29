@@ -54,7 +54,7 @@ function playCurrent(diffsec,JsonTracks) {
 function addDescription(JsonTrack)
 {
      $("#audioTitle" ).html('<a href="https://commons.wikimedia.org/wiki/' + JsonTrack.title + '" target="_blank">' + 
--	            	  sonTrack.title.replace(/\.[^/.]+$/, "").replace("File:","")
+-	            	  JsonTrack.title.replace(/\.[^/.]+$/, "").replace("File:","")
 -	            	 + '</a>');
     //Loading stations
       $.get('playlist.php?getCommonsHtmlPage='+JsonTrack.title, function(data) {
