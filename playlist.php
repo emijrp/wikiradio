@@ -34,6 +34,20 @@ function getWikiPageContent($name)
   exit;
 }
 
+//Get html page content
+function getHtmlPageContent($name)
+{
+  //API query
+  $url = API_URL.'prop=revisions&titles='.$name.'&rvprop=content&rvparse=1&redirects=true&format=json';
+  
+  $file = getAPI($url);
+  if (!is_null($file))
+    return reset(reset($file['query']['pages'])['revisions'][0]);
+  
+  echo 'Page '.$name.' is null';
+  exit;
+}
+
 //Get Playlist page content
 function getPlaylist($name)
 {
@@ -113,6 +127,6 @@ function getList($pagename)
 
 if (isset($_GET['getList']))
   echo getList($_GET['getList']);
-if (isset($_GET['getWikiPageContent']))
-  echo getWikiPageContent($_GET['getWikiPageContent']);
+if (isset($_GET['getHtmlPageContent']))
+  echo getHtmlPageContent($_GET['getHtmlPageContent']);
 ?>
