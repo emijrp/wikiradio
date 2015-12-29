@@ -28,7 +28,7 @@
             <div style="float:right">
                 <span class="mw-editsection">
                 <span class="mw-editsection-bracket">[</span>
-                <a title="Edit section: Summary" href="https://meta.wikimedia.org/w/index.php?title=Wikiradio_(tool)/playlist/<?php echo isset($_GET['channel'])?($_GET['channel']):(('classic')); ?>&action=edit">edit dayparting</a>
+                <a title="Edit section: Summary" href="https://meta.wikimedia.org/w/index.php?title=Wikiradio_(tool)/playlist/<?php echo isset($_GET['channel'])?($_GET['channel']):(('classic')); ?>&action=edit">edit <strong><?php echo isset($_GET['channel'])?($_GET['channel']):(('classic')); ?></strong> dayparting</a>
                 <span class="mw-editsection-bracket">]</span>
                 </span>
 
