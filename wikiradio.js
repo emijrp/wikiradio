@@ -52,34 +52,11 @@ function playCurrent(diffsec,JsonTracks) {
 
 function addDescription(JsonTrack)
 {
-	$.ajax({
-	        type: "GET",
-	        url: "https://tools.wmflabs.org/magnus-toolserver/commonsapi.php?image="+JsonTrack.title,
-	        dataType: "xml",
-	        success: function (xml) { 
-	            $("#audioTitle" ).html('<a href="https://commons.wikimedia.org/wiki/' + JsonTrack.title + '" target="_blank">' + 
-	            		             JsonTrack.title.replace(/\.[^/.]+$/, "").replace("File:","")
-	            	                 + '</a>');
-		    $("#audioDescription" ).html($($(xml).find('description').eq(1)[0]).text());
-	            $("#audioAuthor" ).html($(xml).find('author').text());
-	            $("#audioLicense" ).html($(xml).find("licenses").find('name').text());
-	            
-	            
-	            //Loading stations
-  		    $.get('playlist.php?getCommonsHtmlPage='+JsonTrack.title, function(data) {
-		           $(".content").html(data);
-		        });
-        
-        
-                    $(".content").html();
-	            
-	            
-	        },
-	        error: function (xml) {
-	            alert(xml.status + ' ' + xml.statusText);
-	        }
-        });
-    
+    //Loading stations
+      $.get('playlist.php?getCommonsHtmlPage='+JsonTrack.title, function(data) {
+      	
+           $(".content").html(data.replace("/wiki","https://commons.wikimedia.org/wiki/"));
+    });
 }
 function playTrack(trackID,JsonTracks){
    
