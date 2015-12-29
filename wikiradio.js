@@ -59,8 +59,8 @@ function addDescription(JsonTrack)
     //Loading stations
       $.get('playlist.php?getCommonsHtmlPage='+JsonTrack.title, function(data) {
       	   //Fixing commons links
-      	   data = data.replace('"/wiki','"'+commonsdomain+'/wiki/');
-      	   data = data.replace('"/w','"'+commonsdomain+'/w/');
+      	   data = data.replace('"/wiki/','"'+commonsdomain+'/wiki/');
+      	   data = data.replace('"/w/','"'+commonsdomain+'/w/');
            $(".content").html(data);
       });
 }
