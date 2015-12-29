@@ -38,7 +38,7 @@ function getWikiPageContent($name)
 //Get html page content
 function getHtmlPageContent($name)
 {
-  return getGenericWikiHtmlPageContent(API_URL,$name)
+  return getGenericWikiHtmlPageContent(API_URL,$name);
 }
 
 //Get html page content
@@ -57,13 +57,13 @@ function getGenericWikiHtmlPageContent($API_URL,$name)
 //Get html page content
 function getCommonsHtmlPage($name)
 {
-  return getGenericWikiHtmlPageContent(API_COMMONS_URL,$name)
+  return getGenericWikiHtmlPageContent(API_COMMONS_URL,$name);
 }
 
 //Get Playlist page content
 function getPlaylist($name)
 {
-  return getWikiPageContent(PLAYLIST_PREFIX.$name);
+  return getWikiPageContent(PLAYLIST_PREFIX,$name);
 }
 
 //Get sound info url and duration
