@@ -53,12 +53,10 @@ function playCurrent(diffsec,JsonTracks) {
 
 function addDescription(JsonTrack)
 {
-      console.log('<a href="https://commons.wikimedia.org/wiki/' + JsonTrack.title + '" target="_blank">' + 
--	            	  JsonTrack.title.replace(/\.[^/.]+$/, "").replace("File:","")
--	            	 + '</a>');
+
      $("#audioTitle" ).html('<a href="https://commons.wikimedia.org/wiki/' + JsonTrack.title + '" target="_blank">' + 
--	            	  JsonTrack.title.replace(/\.[^/.]+$/, "").replace("File:","")
--	            	 + '</a>');
+	            	  JsonTrack.title.replace(/\.[^/.]+$/, "").replace("File:","")
+	            	 + '</a>');
     //Loading stations
       $.get('playlist.php?getCommonsHtmlPage='+JsonTrack.title, function(data) {
       	   //Fixing commons links
