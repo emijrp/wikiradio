@@ -57,7 +57,7 @@ function addDescription(JsonTrack)
 	        url: "https://tools.wmflabs.org/magnus-toolserver/commonsapi.php?image="+JsonTrack.title,
 	        dataType: "xml",
 	        success: function (xml) { 
-	            $("#audioTitle" ).html('<a href="https://commons.wikimedia.org/wiki/' + JsonTrack.title + '">' + 
+	            $("#audioTitle" ).html('<a href="https://commons.wikimedia.org/wiki/' + JsonTrack.title + '" target="_blank">' + 
 	            		             JsonTrack.title.replace(/\.[^/.]+$/, "").replace("File:","")
 	            	                 + '</a>');
 		    $("#audioDescription" ).html($($(xml).find('description').eq(1)[0]).text());
