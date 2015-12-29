@@ -63,7 +63,15 @@ function addDescription(JsonTrack)
 		    $("#audioDescription" ).html($($(xml).find('description').eq(1)[0]).text());
 	            $("#audioAuthor" ).html($(xml).find('author').text());
 	            $("#audioLicense" ).html($(xml).find("licenses").find('name').text());
-                    
+	            
+	            
+	            //Loading stations
+  		    $.get('playlist.php?getCommonsHtmlPage='+JsonTrack.title, function(data) {
+		           $(".content").html(data);
+		        });
+        
+        
+                    $(".content").html();
 	            
 	            
 	        },
