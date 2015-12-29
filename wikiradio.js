@@ -157,7 +157,7 @@ $.getJSON( "playlist.php", { getList: getList} )
 });
 
 //Loading stations
-$.get('playlist.php?getHtmlPageContent=Wikiradio_(tool)/stations', function(data) {
+$.get('playlist.php?getHtmlPageContent=Template:Wikiradio_(tool)/stations', function(data) {
            $("#channels" ).html(data);
         });
         
