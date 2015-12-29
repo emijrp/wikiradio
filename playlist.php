@@ -38,22 +38,14 @@ function getWikiPageContent($name)
 //Get html page content
 function getHtmlPageContent($name)
 {
-  //API query
-  $url = API_URL.'prop=revisions&titles='.$name.'&rvprop=content&rvparse=1&redirects=true&format=json';
-  
-  $file = getAPI($url);
-  if (!is_null($file))
-    return reset(reset($file['query']['pages'])['revisions'][0]);
-  
-  echo 'Page '.$name.' is null';
-  exit;
+  return getGenericWikiHtmlPageContent(API_URL,$name)
 }
 
 //Get html page content
-function getHtmlPageContent($name)
+function getGenericWikiHtmlPageContent($API_URL,$name)
 {
   //API query
-  $url = API_URL.'prop=revisions&titles='.$name.'&rvprop=content&rvparse=1&redirects=true&format=json';
+  $url = $API_URL.'prop=revisions&titles='.$name.'&rvprop=content&rvparse=1&redirects=true&format=json';
   
   $file = getAPI($url);
   if (!is_null($file))
@@ -63,17 +55,9 @@ function getHtmlPageContent($name)
   exit;
 }
 //Get html page content
-function getHtmlPageCommons($name)
+function getCommonsHtmlPage($name)
 {
-  //API query
-  $url = API_COMMONS_URL.'prop=revisions&titles='.$name.'&rvprop=content&rvparse=1&redirects=true&format=json';
-  
-  $file = getAPI($url);
-  if (!is_null($file))
-    return reset(reset($file['query']['pages'])['revisions'][0]);
-  
-  echo 'Page '.$name.' is null';
-  exit;
+  return getGenericWikiHtmlPageContent(API_COMMONS_URL,$name)
 }
 
 //Get Playlist page content
@@ -157,4 +141,6 @@ if (isset($_GET['getList']))
   echo getList($_GET['getList']);
 if (isset($_GET['getHtmlPageContent']))
   echo getHtmlPageContent($_GET['getHtmlPageContent']);
+if (isset($_GET['getCommonsHtmlPage']))  
+  echo getCommonsHtmlPage($_GET['getCommonsHtmlPage']);
 ?>
