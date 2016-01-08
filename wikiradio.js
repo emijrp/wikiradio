@@ -103,7 +103,7 @@ function playTrackFrom(trackID,JsonTracks,diffsec){
 }
 
 function playHourlySignal(){
-    audioPlayerAux.src = 'https://upload.wikimedia.org/wikipedia/commons/2/26/Busy_tone_%28France%29.ogg';
+    audioPlayerAux.src = 'https://upload.wikimedia.org/wikipedia/commons/0/0f/Gts_%28bbc%29_pips.ogg';
     audioPlayerAux.play();
     setTimeout(hourlySignal, 5000);
 }
