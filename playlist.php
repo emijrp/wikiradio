@@ -46,7 +46,6 @@ function getHtmlPageContent($name)
 function getGenericWikiHtmlPageContent($API_URL,$name)
 {
   //API query
-  $name=htmlspecialchars($name);
   $url = $API_URL.'prop=revisions&titles='.$name.'&rvprop=content&rvparse=1&redirects=true&format=json';
   
   $file = getAPI($url);
