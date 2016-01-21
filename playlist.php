@@ -8,7 +8,8 @@ define("PLAYLIST_PREFIX", "Wikiradio_(tool)/playlist/");
 //Get api request
 function getAPI($url)
 {
-  $url = str_replace(' ','_',$url);
+  //$url = str_replace(' ','_',$url);
+  $url = urlencode($url);
   //var_dump($url);
   $options = array(
     'http'=>array(
