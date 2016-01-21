@@ -70,7 +70,8 @@ function getPlaylist($name)
 //Get sound info url and duration
 function getFileIfo($filename)
 {
-  $filename = htmlspecialchars($filename);
+  
+  $filename = str_replace('&', '&amp;', $filename);
   //API query
   $url = API_URL.'prop=revisions&titles='.$filename.'&prop=imageinfo&iiprop=url|dimensions&format=json';
   //get page content
