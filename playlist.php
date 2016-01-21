@@ -11,7 +11,7 @@ function getAPI($url)
   $url = str_replace(' ','_',$url);
   //$url = rawurlencode($url);
   //var_dump($url);
-  $options = array(
+  $options = array(u
     'http'=>array(
       'method'=>"GET",
       'header'=>"Accept-language: en\r\n" .
@@ -46,7 +46,7 @@ function getHtmlPageContent($name)
 function getGenericWikiHtmlPageContent($API_URL,$name)
 {
   //API query
-  $name=urlencode($name);
+  $name=rawurlencode($name);
   $url = $API_URL.'prop=revisions&titles='.$name.'&rvprop=content&rvparse=1&redirects=true&format=json';
   
   $file = getAPI($url);
