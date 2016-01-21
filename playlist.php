@@ -71,7 +71,7 @@ function getPlaylist($name)
 function getFileIfo($filename)
 {
   
-  $filename = str_replace('&', '&amp;', $filename);
+  
   //API query
   $url = API_URL.'prop=revisions&titles='.$filename.'&prop=imageinfo&iiprop=url|dimensions&format=json';
   //get page content
