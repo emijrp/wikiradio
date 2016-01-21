@@ -46,7 +46,7 @@ function getHtmlPageContent($name)
 function getGenericWikiHtmlPageContent($API_URL,$name)
 {
   //API query
-  $name=htmlspecialchars(($name);
+  $name=htmlspecialchars($name);
   $url = $API_URL.'prop=revisions&titles='.$name.'&rvprop=content&rvparse=1&redirects=true&format=json';
   
   $file = getAPI($url);
@@ -71,6 +71,7 @@ function getPlaylist($name)
 //Get sound info url and duration
 function getFileIfo($filename)
 {
+  $filename = htmlspecialchars($filename);
   //API query
   $url = API_URL.'prop=revisions&titles='.$filename.'&prop=imageinfo&iiprop=url|dimensions&format=json';
   //get page content
