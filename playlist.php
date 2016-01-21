@@ -9,9 +9,8 @@ define("PLAYLIST_PREFIX", "Wikiradio_(tool)/playlist/");
 function getAPI($url)
 {
   $url = str_replace(' ','_',$url);
-  //$url = rawurlencode($url);
   //var_dump($url);
-  $options = array(u
+  $options = array(
     'http'=>array(
       'method'=>"GET",
       'header'=>"Accept-language: en\r\n" .
@@ -70,8 +69,6 @@ function getPlaylist($name)
 //Get sound info url and duration
 function getFileIfo($filename)
 {
-  
-  
   //API query
   $url = API_URL.'prop=revisions&titles='.$filename.'&prop=imageinfo&iiprop=url|dimensions&format=json';
   //get page content
