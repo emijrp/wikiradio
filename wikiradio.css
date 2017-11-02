@@ -32,8 +32,8 @@
     overflow:auto
 }
 #author {
-    width:100%;
-    margin: 10px auto auto auto;
+    /* width:100%; */
+    margin: 10px auto 2em auto;
     margin-left: 6em;
     text-align: left;
     font-size: small;
