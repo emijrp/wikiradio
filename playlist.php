@@ -110,13 +110,12 @@ function getFileExt($filename)
   return substr($filename, -3);
 }
 //https://commons.wikimedia.org/wiki/Commons:File_types#Sound
-// .wav .ogg .flac
+// .wav .ogg .oga .flac .mp3
 function isValidSoundExt($filename)
 {
-  //Last 3 chars
-  $fileext = strtolower(substr($filename, -3));
-  $validext =  array("wav", "ogg", "lac","oga");
-  return (in_array($fileext, $validext));
+  $fileext = substr(strrchr($filename, "."), 1);
+  $validext =  array("wav", "ogg", "flac", "oga", "mp3");
+  return (in_array(strtolower($fileext), $validext));
 }
 
 function getList($pagename)
